@@ -140,6 +140,16 @@ section{padding:var(--section) 0}
 .statement .rule{margin-top:1.25rem;color:#8F8F8F;font-weight:500}
 .highlight{margin-top:clamp(3rem,6vw,5rem);padding-top:2.25rem;border-top:1px solid #2C2C2C;font-size:clamp(1.375rem,2.6vw,2.125rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;text-transform:uppercase;max-width:30ch}
 .highlight em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.statement-grid{display:grid;gap:2.5rem}
+@media(min-width:980px){.statement-grid{grid-template-columns:1.15fr .85fr;gap:clamp(3rem,6vw,6rem);align-items:center}}
+.statement-niet{display:block;padding:clamp(1.75rem,3vw,2.5rem);border:1px solid rgba(255,255,255,.16);border-radius:var(--radius);background:rgba(255,255,255,.035);text-decoration:none;color:#fff;transition:border-color .2s,transform .2s,background .2s,box-shadow .2s}
+.statement-niet:hover{border-color:var(--pink);background:rgba(255,255,255,.06);transform:translateY(-3px);box-shadow:0 18px 44px rgba(0,0,0,.35)}
+.statement-niet-eyebrow{display:block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--pink);margin-bottom:.75rem}
+.statement-niet strong{display:block;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.08;font-weight:800;letter-spacing:-.02em}
+.statement-niet-p{display:block;margin-top:.9rem;color:#B9B9B9;font-size:1.0625rem;line-height:1.55}
+.statement-niet-cta{display:inline-flex;align-items:center;gap:.45rem;margin-top:1.5rem;font-weight:700;color:var(--pink);line-height:1.2}
+.statement-niet-cta svg{flex:0 0 auto;width:19px;height:19px;transition:transform .2s}
+.statement-niet:hover .statement-niet-cta svg{transform:translateX(4px)}
 
 /* ---------- 03 Herkenning ---------- */
 .task-card{min-height:170px;display:flex;flex-direction:column;justify-content:space-between;gap:1rem}
