@@ -311,8 +311,25 @@ footer ul{list-style:none;padding:0;display:grid;gap:.5rem}
 footer small{font-size:.875rem;display:block;margin-top:1rem}
 
 /* ---------- Sticky mobile CTA ---------- */
-.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:48;padding:.6rem var(--gutter) calc(.6rem + env(safe-area-inset-bottom));background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line)}
-.sticky-cta a{display:flex;align-items:center;justify-content:space-between;gap:.75rem;min-height:52px;padding:.7rem 1.1rem;border-radius:var(--radius-btn);background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:.9375rem;text-transform:uppercase;letter-spacing:.02em}
-.sticky-cta a span{color:#CFCFCF;font-weight:500;text-transform:none;letter-spacing:0}
-@media(min-width:1024px){.sticky-cta{display:none}}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:48;padding:.6rem var(--gutter) calc(.6rem + env(safe-area-inset-bottom));background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);transform:translateY(120%);transition:transform .28s ease}
+.sticky-cta[data-show="true"]{transform:none}
+@media (prefers-reduced-motion:reduce){.sticky-cta{transition:none}}
+.sticky-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.sticky-info{font-weight:600;font-size:.9375rem;color:var(--ink-2)}
+.sticky-info strong{color:var(--ink);font-weight:800}
+.sticky-info .ex{color:var(--ink-3);font-weight:500}
+.sticky-cta .btn{min-height:48px;padding:.6rem 1.3rem;white-space:nowrap}
+@media(max-width:620px){.sticky-info{display:none}.sticky-cta .btn{width:100%}}
+
+/* Urgentie / schaarste */
+.urgent{display:flex;align-items:center;gap:.55rem;margin-top:.9rem;font-size:.9375rem;font-weight:600;color:var(--ink-2)}
+.urgent .dot,.tickets-note .dot{flex:0 0 9px;width:9px;height:9px;border-radius:50%;background:var(--grad);box-shadow:0 0 0 4px rgba(229,0,125,.12);animation:puls 1.8s ease-in-out infinite}
+@keyframes puls{50%{box-shadow:0 0 0 7px rgba(229,0,125,.05)}}
+@media (prefers-reduced-motion:reduce){.urgent .dot,.tickets-note .dot{animation:none}}
+.tickets-note{display:flex;align-items:center;gap:.55rem;margin-top:1rem;font-size:.9375rem;font-weight:600;color:var(--ink-2)}
+
+/* Betaal-/factuur-reassurance onder de tickets */
+.reassurance{list-style:none;padding:0;margin:2rem 0 0;display:flex;flex-wrap:wrap;gap:.75rem 2rem;justify-content:center}
+.reassurance li{display:flex;align-items:center;gap:.6rem;font-size:.9375rem;font-weight:500;color:var(--ink-2)}
+.reassurance svg{width:20px;height:20px;color:var(--pink);flex:0 0 20px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
