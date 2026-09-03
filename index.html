@@ -721,6 +721,8 @@
   }
   function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g, function(c){
     return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  // Alleen veilige URL-schema's toestaan (weert javascript:/data: uit CMS-velden).
+  function veiligeHref(u){ return /^(https?:\/\/|mailto:|tel:|\/|#)/i.test(String(u||'')) ? String(u) : '#'; }
   var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>';
 
   // ---------- sectie-renderers ----------
@@ -863,7 +865,7 @@
           + '<p class="price">'+esc(it.prijs)+(isTekst(it.eenheid)?'<small>'+esc(it.eenheid)+'</small>':'')+'</p>'
           + (isTekst(it.voordeel) ? '<span class="saving">'+esc(it.voordeel)+'</span>' : '')
           + '<ul class="incl">'+incl+'</ul>'
-          + '<a class="btn '+(team?'btn-accent':'btn-primary')+'" href="'+esc(it.knop||'#')+'" data-event="checkout_start" data-ticket="'+esc(it.naam||'')+'" data-loc="tickets">'+esc(it.knoptekst||'Reserveer')+'</a>'
+          + '<a class="btn '+(team?'btn-accent':'btn-primary')+'" href="'+esc(veiligeHref(it.knop||'#'))+'" data-event="checkout_start" data-ticket="'+esc(it.naam||'')+'" data-loc="tickets">'+esc(it.knoptekst||'Reserveer')+'</a>'
           + '</article>';
       }).join('');
     },
