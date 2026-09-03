@@ -406,8 +406,15 @@ section{padding:var(--section) 0}
 .legal dt{font-weight:700;color:var(--ink)}
 .legal dd{margin:0;color:var(--ink-2)}
 
+/* Nette ankerlanding onder de sticky header (fixt fout scrollen) */
+:where(section[id],#tickets,#teams,#check,#top){scroll-margin-top:88px}
+
 /* ---------- Footer ---------- */
 footer{background:var(--ink);color:#B5B5B5;padding:4rem 0 6.5rem}
+.footer-credit{margin-top:1.25rem}
+.footer-credit p{font-size:.75rem;color:#8F8F8F;margin:0}
+.footer-credit a{color:#B5B5B5;font-weight:600}
+.footer-credit a:hover{color:var(--orange)}
 @media(min-width:1024px){footer{padding-bottom:6rem}}
 footer a{color:#fff;text-decoration:none;font-weight:500}
 footer a:hover{color:var(--orange)}
@@ -440,7 +447,7 @@ footer h3{font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;color
 .sticky-info strong{color:var(--ink);font-weight:800}
 .sticky-info .ex{color:var(--ink-3);font-weight:500}
 .sticky-cta .btn{min-height:48px;padding:.6rem 1.3rem;white-space:nowrap}
-@media(max-width:620px){.sticky-info{display:none}.sticky-cta .btn{width:100%}}
+@media(max-width:620px){.sticky-inner{flex-direction:column;align-items:stretch;gap:.5rem}.sticky-when{display:none}.sticky-info{font-size:.8125rem;text-align:center}.sticky-cta .btn{width:100%}}
 
 /* Urgentie / schaarste */
 .urgent{display:flex;align-items:center;gap:.55rem;margin-top:.9rem;font-size:.9375rem;font-weight:600;color:var(--ink-2)}
