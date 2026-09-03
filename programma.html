@@ -118,7 +118,7 @@
           <h3>Koffie. Ontbijt. Muziek. En alvast je eerste goede gesprek.</h3>
           <p>De Grote Kerk wordt voor één dag jouw AI-werkplaats. Pak koffie en een licht ontbijt, ontmoet je tafelgenoten en AI-coach en klap alvast je laptop open.</p>
           <p class="dd-meta">Human Fuel · koffie · ontbijt · muziek</p>
-          <span class="dd-music"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18V5l10-2v11"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="14" r="3"/></svg>Music on</span>
+          <span class="dd-music" data-src="/human-energy-break.mp3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18V5l10-2v11"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="14" r="3"/></svg>Music on</span>
         </div>
       </article>
 
@@ -157,7 +157,7 @@
           <h3>Laptop dicht. Hoofd even leeg.</h3>
           <p>Tijd voor goede koffie, iets lekkers en muziek. Even lopen, praten en laten bezinken wat je zojuist hebt ontdekt.</p>
           <p class="dd-meta">Prompt Perfect · Context Cookie · Hallucination · koffie · fruit · muziek · 30 min</p>
-          <span class="dd-music"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18V5l10-2v11"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="14" r="3"/></svg>Music on</span>
+          <span class="dd-music" data-src="/human-energy-break.mp3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18V5l10-2v11"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="14" r="3"/></svg>Music on</span>
         </div>
       </article>
 
@@ -212,7 +212,7 @@
           <h3>You have a body too.</h3>
           <p>Laptop dicht. Muziek aan. Na tachtig minuten bouwen is het tijd om van je stoel te komen. Even bewegen, drinken, eten en opladen.</p>
           <p class="dd-meta">Dark Mode · No-Code Energy Ball · Green Machine · fruit · muziek · 30 min</p>
-          <span class="dd-music"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18V5l10-2v11"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="14" r="3"/></svg>Music on</span>
+          <span class="dd-music" data-src="/human-energy-break.mp3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18V5l10-2v11"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="14" r="3"/></svg>Music on</span>
         </div>
       </article>
 
@@ -260,7 +260,7 @@
           <h3>Laptop dicht. Bar open.</h3>
           <p>Muziek aan. Drankjes en goede bites erbij. En inmiddels heb je een veel interessantere openingsvraag dan “wat doe jij eigenlijk?” — namelijk: <em>“wat heb jij vandaag gemaakt?”</em></p>
           <p class="dd-meta">Muziek · drinks · bites · tot 18.30 uur</p>
-          <span class="dd-music"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18V5l10-2v11"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="14" r="3"/></svg>Music on</span>
+          <span class="dd-music" data-src="/friday-evening-groove.mp3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18V5l10-2v11"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="14" r="3"/></svg>Music on</span>
         </div>
       </article>
 
@@ -393,18 +393,24 @@
 </script>
 <!-- Chatbot-widget -->
 <script src="https://www.chatbot-builder.com/widget.js" data-agent="slag-goi5jc" async></script>
-<audio id="soundtrack" src="/human-energy-break.mp3" preload="none"></audio>
+<audio id="soundtrack" preload="none"></audio>
 <script>
 (function(){
   var a=document.getElementById("soundtrack"); if(!a) return;
   var knoppen=Array.prototype.slice.call(document.querySelectorAll(".dd-music"));
-  function sync(){ knoppen.forEach(function(b){ b.setAttribute("aria-pressed", String(!a.paused)); b.classList.toggle("playing", !a.paused); }); }
+  var actief=null;
+  function sync(){ knoppen.forEach(function(b){ var on=(b===actief && !a.paused); b.classList.toggle("playing",on); b.setAttribute("aria-pressed",String(on)); }); }
   knoppen.forEach(function(b){ b.setAttribute("role","button"); b.tabIndex=0; b.setAttribute("aria-pressed","false");
-    function toggle(){ if(a.paused){ a.play().catch(function(){}); } else { a.pause(); } }
+    function toggle(){
+      var src=b.getAttribute("data-src")||"/human-energy-break.mp3";
+      if(actief===b && !a.paused){ a.pause(); return; }
+      if(a.getAttribute("src")!==src){ a.setAttribute("src",src); a.load(); }
+      actief=b; a.play().catch(function(){});
+    }
     b.addEventListener("click", toggle);
     b.addEventListener("keydown", function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); toggle(); } });
   });
-  a.addEventListener("play", sync); a.addEventListener("pause", sync); a.addEventListener("ended", sync);
+  a.addEventListener("play", sync); a.addEventListener("pause", sync); a.addEventListener("ended", function(){ actief=null; sync(); });
 })();
 </script>
 </body>
