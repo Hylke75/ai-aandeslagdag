@@ -299,6 +299,68 @@ section{padding:var(--section) 0}
 .lead-capture h3{margin-top:.5rem;text-transform:none;font-weight:500;color:var(--ink-2)}
 .lead-capture p{margin-top:.75rem;font-size:.9375rem;color:var(--ink-3)}
 
+/* ---------- Experience-programma (homepage) ---------- */
+.exp-intro h2{font-size:clamp(2rem,5vw,4rem)}
+.exp-intro .lead{margin-top:1.75rem;max-width:46ch}
+.exp-intro .sub{margin-top:1rem;color:var(--ink-2);max-width:52ch}
+
+/* Journey-balk */
+.journey{display:flex;align-items:center;gap:.35rem .6rem;flex-wrap:wrap;margin:2.75rem 0 0;padding:0;list-style:none}
+.journey .step{font-size:.8125rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.journey .step.is-peak{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.journey .arrow{color:var(--ink-3);opacity:.5}
+@media(max-width:760px){.journey{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:.75rem;margin-right:calc(-1*var(--gutter))}}
+
+/* Dagdelen (geen tijdlijn) */
+.dagdelen{margin-top:clamp(3rem,6vw,5rem);display:grid;gap:.5rem}
+.dagdeel{display:grid;gap:.6rem;padding:1.75rem 0;border-top:1px solid var(--line)}
+@media(min-width:820px){.dagdeel{grid-template-columns:200px 1fr;gap:2.5rem;padding:2.5rem 0}}
+.dd-tijd{display:flex;flex-direction:column;gap:.3rem}
+.dd-tijd time{font-size:clamp(1.5rem,2.6vw,2.125rem);font-weight:800;letter-spacing:-.03em;line-height:1}
+.dd-code{font-size:.75rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+.dd-body h3{text-transform:none;font-size:clamp(1.25rem,2.3vw,1.75rem);letter-spacing:-.015em;line-height:1.15}
+.dd-body p{margin-top:.6rem;color:var(--ink-2);max-width:60ch}
+.dd-body p em{font-style:normal;font-weight:700;color:var(--ink)}
+.dd-meta{margin-top:1rem;font-size:.8125rem;font-weight:600;letter-spacing:.02em;color:var(--ink-3)}
+.dd-music{display:inline-flex;align-items:center;gap:.4rem;font-size:.6875rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);margin-top:1rem}
+.dd-music svg{width:14px;height:14px}
+
+/* Spreker */
+.dd-spreker{display:flex;align-items:center;gap:1rem;margin-top:1.25rem}
+.dd-spreker img{width:60px;height:60px;border-radius:50%;object-fit:cover;flex:0 0 60px}
+.dd-spreker strong{display:block;font-size:1.0625rem;letter-spacing:-.01em}
+.dd-spreker span{font-size:.8125rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pink)}
+
+/* Build — groot nummer */
+.dd-num{display:block;font-size:clamp(3.25rem,6vw,5.25rem);font-weight:800;letter-spacing:-.05em;line-height:.82;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.dd-num b{display:block;font-size:.8125rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);-webkit-text-fill-color:var(--ink-3);margin-top:.55rem}
+.dagdeel--build .dd-tijd time{font-size:1rem;font-weight:700;color:var(--ink-3);letter-spacing:0}
+
+/* Human — warm vlak */
+.dagdeel--human{border-top:0;background:var(--paper-2);border-radius:var(--radius);padding:clamp(1.5rem,3.2vw,2.25rem)}
+@media(min-width:820px){.dagdeel--human{align-items:center}}
+
+/* Build 04 — donker hoogtepunt */
+.dagdeel--ship{display:block;border-top:0;background:var(--ink);color:#fff;border-radius:var(--radius);padding:clamp(2.25rem,6vw,4rem);text-align:center;margin:.5rem 0}
+.dagdeel--ship .dd-code{color:#8F8F8F}
+.ship-clock{font-size:clamp(4.5rem,15vw,10rem);font-weight:800;letter-spacing:-.06em;line-height:.85;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:.5rem}
+.ship-title{font-size:clamp(1.5rem,3.4vw,2.5rem);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;margin-top:.5rem}
+.dagdeel--ship p{color:#B5B5B5;max-width:50ch;margin:1.1rem auto 0}
+.dagdeel--ship .dd-vraag{color:#fff;font-weight:800;font-size:clamp(1.125rem,2vw,1.375rem);margin-top:1.25rem}
+
+/* Statement-act (finale) */
+.dagdeel--statement .dd-body p{font-size:1.0625rem}
+.dagdeel--statement .dd-punch{margin-top:1.1rem;font-size:clamp(1.375rem,2.6vw,2rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;text-transform:uppercase;max-width:24ch}
+.dagdeel--statement .dd-punch em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Afsluitend resultaat */
+.exp-result{border-top:1px solid var(--line);margin-top:2rem;padding-top:clamp(3rem,6vw,4.5rem)}
+.exp-result .eyebrow{margin-bottom:1.25rem}
+.exp-result h3{font-size:clamp(2rem,5vw,3.5rem);max-width:18ch}
+.exp-result h3 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.exp-result .sub{margin-top:1.5rem;color:var(--ink-2);max-width:52ch}
+.exp-result .cta-row{margin-top:2.25rem}
+
 /* ---------- Inhoudspagina's (subhero + juridisch) ---------- */
 .terug{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;text-decoration:none;color:var(--ink-2);margin-bottom:1.5rem;font-size:.9375rem}
 .terug:hover{color:var(--pink)}
