@@ -361,6 +361,22 @@ section{padding:var(--section) 0}
 .exp-result .sub{margin-top:1.5rem;color:var(--ink-2);max-width:52ch}
 .exp-result .cta-row{margin-top:2.25rem}
 
+/* Verkorte dagritme op de home */
+.dag-kort{margin-top:clamp(2.5rem,5vw,3.5rem);display:grid;gap:0}
+@media(min-width:760px){.dag-kort{grid-template-columns:1fr 1fr;column-gap:2.5rem}}
+.kort-item{padding:1.5rem 0;border-top:1px solid var(--line)}
+.kort-t{display:inline-block;font-size:.75rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--pink)}
+.kort-item h3{text-transform:none;font-size:1.25rem;letter-spacing:-.01em;margin-top:.5rem}
+.kort-item p{margin-top:.45rem;color:var(--ink-2);font-size:.9375rem;max-width:46ch}
+
+/* MUSIC ON = klikbare soundtrack-toggle (op /programma) */
+.dd-music{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.dd-music:hover{opacity:.7}
+.dd-music:focus-visible{outline:3px solid var(--pink);outline-offset:3px;border-radius:4px}
+.dd-music.playing svg{animation:eq2 .9s ease-in-out infinite;transform-origin:center}
+@keyframes eq2{50%{transform:scale(1.18)}}
+@media (prefers-reduced-motion:reduce){.dd-music.playing svg{animation:none}}
+
 /* ---------- Inhoudspagina's (subhero + juridisch) ---------- */
 .terug{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;text-decoration:none;color:var(--ink-2);margin-bottom:1.5rem;font-size:.9375rem}
 .terug:hover{color:var(--pink)}
