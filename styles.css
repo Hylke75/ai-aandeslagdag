@@ -299,6 +299,24 @@ section{padding:var(--section) 0}
 .lead-capture h3{margin-top:.5rem;text-transform:none;font-weight:500;color:var(--ink-2)}
 .lead-capture p{margin-top:.75rem;font-size:.9375rem;color:var(--ink-3)}
 
+/* ---------- Inhoudspagina's (subhero + juridisch) ---------- */
+.terug{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;text-decoration:none;color:var(--ink-2);margin-bottom:1.5rem;font-size:.9375rem}
+.terug:hover{color:var(--pink)}
+.terug svg{width:1.1em;height:1.1em;transform:rotate(180deg)}
+.subhero{padding-top:clamp(3rem,7vw,5rem);padding-bottom:0}
+.legal-hero h1{font-size:clamp(2.25rem,5vw,3.5rem);margin:1rem 0 1rem}
+.legal{max-width:760px;padding-bottom:1rem}
+.legal h2{font-size:clamp(1.375rem,2.8vw,2rem);text-transform:none;letter-spacing:-.01em;line-height:1.15;margin-top:2.5rem}
+.legal h3{font-size:1.125rem;text-transform:none;margin-top:1.5rem}
+.legal p,.legal li{color:var(--ink-2);font-size:1.0625rem;line-height:1.65}
+.legal p{margin-top:.85rem}
+.legal ul{margin:.85rem 0 0;padding-left:1.2rem;display:grid;gap:.5rem}
+.legal a{color:var(--pink);font-weight:600}
+.legal .meta{color:var(--ink-3);font-size:.9375rem;margin-top:1.5rem}
+.legal dl{margin-top:1rem;display:grid;grid-template-columns:auto 1fr;gap:.4rem 1.5rem}
+.legal dt{font-weight:700;color:var(--ink)}
+.legal dd{margin:0;color:var(--ink-2)}
+
 /* ---------- Footer ---------- */
 footer{background:var(--ink);color:#B5B5B5;padding:4rem 0 6.5rem}
 @media(min-width:1024px){footer{padding-bottom:6rem}}
