@@ -1,0 +1,8 @@
+{
+  "name": "aandeslagdag",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AI Aan De Slag Dag — 23 november 2026, Grote Kerk Den Haag. Losse frontend (exact ontwerp) op het centrale CMS.",
+  "license": "UNLICENSED"
+}
