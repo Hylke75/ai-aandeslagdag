@@ -31,6 +31,19 @@
 .legenda{display:flex;flex-wrap:wrap;gap:.5rem .75rem;margin-top:1.5rem;list-style:none;padding:0}
 .legenda li{font-size:.875rem;font-weight:500;padding:.4rem .8rem;border:1px solid var(--line);border-radius:999px;background:#fff}
 .legenda li.hi::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--grad);margin-right:.5rem;vertical-align:middle;position:relative;top:-1px}
+/* Verrijkte dagindeling */
+.prog-timeline{max-width:760px;margin:2.5rem 0 0}
+.prog-timeline .timeline{max-width:none}
+.timeline .code{display:inline-block;margin-left:.65rem;font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;vertical-align:middle}
+.timeline .h{margin-top:.3rem}
+.timeline li p{margin-top:.35rem}
+.timeline .met{margin-top:.6rem;font-weight:700;font-size:.875rem;color:var(--pink)}
+.timeline .tag{margin-top:.6rem;font-size:.8125rem;font-weight:600;letter-spacing:.02em;color:var(--ink-3)}
+.timeline li.build .h{text-transform:uppercase;letter-spacing:-.01em}
+.bigstmt{font-size:clamp(2rem,5vw,4rem);line-height:1.02}
+.bigstmt em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eind-slot{color:#B5B5B5;max-width:none}
+.eind-slot strong{color:#fff}
 </style>
 </head>
 <body>
@@ -70,74 +83,137 @@
 <section class="subhero" aria-labelledby="h-top">
   <div class="wrap">
     <a class="terug" href="/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Terug naar de homepage</a>
-    <p class="eyebrow eyebrow--accent">Maandag 23 november 2026 · Grote Kerk Den Haag · 09.00 – 18.30 uur</p>
-    <h1 id="h-top">Het volledige programma.</h1>
-    <p class="lead">Eén dag, van inloop tot borrel. Het grootste deel werk je aan je eigen taak, met een AI-coach aan je tafel. Twee keer gaat je laptop dicht voor een spreker.</p>
+    <p class="eyebrow eyebrow--accent">Maandag 23 november 2026 · Grote Kerk Den Haag · vanaf 08.30 uur</p>
+    <h1 id="h-top">Eén dag. Van AI proberen naar echt werken met AI.</h1>
+    <p class="lead">Geen dag vol presentaties. Je gaat vooral zelf aan de slag.</p>
+    <p class="body" style="max-width:60ch;color:var(--ink-2);margin-top:1rem">Je neemt een taak uit je eigen werk mee, ontdekt wat er met AI mogelijk is en bouwt die gedurende de dag stap voor stap om tot een slimmere werkwijze. En je staat er niet alleen voor: je werkt met <strong>maximaal 6 deelnemers per AI-coach</strong>.</p>
   </div>
 </section>
 
 <!-- ===== DAGINDELING ===== -->
 <section aria-labelledby="h-dag">
-  <div class="wrap prog-full">
-    <div class="stack">
-      <h2 id="h-dag">Zo verloopt de dag.</h2>
-      <p class="muted">De tijden zijn een leidraad. Je coach past het tempo aan op wat jouw werkuitdaging nodig heeft.</p>
-      <ul class="legenda" aria-label="Legenda">
-        <li class="hi">Werkblok — jij bouwt</li>
-        <li>Plenair of pauze</li>
-      </ul>
-      <div class="cta-row" style="margin-top:2rem">
-        <a class="btn btn-primary" href="/#tickets" data-event="cta_reserveer" data-loc="programma">Reserveer mijn werkplek</a>
-      </div>
+  <div class="wrap">
+    <h2 id="h-dag">Zo verloopt de dag.</h2>
+    <p class="muted" style="margin-top:.75rem;max-width:60ch">De tijden zijn een leidraad. Je coach past het tempo aan op wat jouw werkuitdaging nodig heeft.</p>
+    <ul class="legenda" aria-label="Legenda">
+      <li class="hi">Werkblok — jij bouwt</li>
+      <li>Inspiratie, pauze of plenair</li>
+    </ul>
+
+    <div class="prog-timeline">
+      <ol class="timeline">
+        <li>
+          <span class="t">08.30</span><span class="code">Human Start</span>
+          <div class="h">Binnenkomen. Ontbijten. Ontmoeten.</div>
+          <p>We beginnen rustig. Goede koffie, een licht ontbijt en muziek in de Grote Kerk. Je ontmoet je tafelgenoten en AI-coach en zorgt dat je laptop klaarstaat.</p>
+          <p class="tag">Human Fuel · koffie · ontbijt · muziek</p>
+        </li>
+        <li>
+          <span class="t">09.15</span><span class="code">The Mission</span>
+          <div class="h">Laat AI meer van je werk doen.</div>
+          <p>We beginnen met één simpele opdracht: <strong>wat wil jij aan het einde van deze dag slimmer kunnen doen dan toen je binnenkwam?</strong> Je hebt vooraf je eigen AI-werkuitdaging gekozen. Vandaag ga je ermee aan de slag.</p>
+          <p class="met">Met Hylke Thiry</p>
+        </li>
+        <li>
+          <span class="t">09.30</span><span class="code">Inspire</span>
+          <div class="h">Wat kan AI vandaag al voor jouw werk betekenen?</div>
+          <p>AI ontwikkelt zich razendsnel. Maar welke ontwikkelingen zijn werkelijk relevant voor jouw werk? Jarno Duursma laat zien wat er nu mogelijk is, wat eraan komt en vooral: waar voor jou de kansen liggen. Geen lange theoretische beschouwing, maar inspiratie waarmee je direct daarna zelf aan de slag gaat.</p>
+          <p class="met">Met Jarno Duursma</p>
+        </li>
+        <li class="hi build">
+          <span class="t">10.00</span><span class="code">Build 01 · Discover</span>
+          <div class="h">Ontdek wat AI met jouw werk kan.</div>
+          <p>Laptop open. Je pakt je eigen AI-werkuitdaging erbij en gaat beginnen. Wat kan AI al? Waar loop je tegenaan? En wat zou er beter moeten voordat je dit daadwerkelijk in je werk gaat gebruiken? Je AI-coach helpt je op weg.</p>
+        </li>
+        <li>
+          <span class="t">10.45</span><span class="code">Prompt &amp; Pastry</span>
+          <div class="h">Even geen artificial intelligence.</div>
+          <p>Laptop dicht. Goede koffie, bijzondere pastries, muziek en even praten met de mensen om je heen.</p>
+          <p class="tag">Context Cookie · Prompt Perfect · Hallucination · koffie · thee · fruit</p>
+        </li>
+        <li>
+          <span class="t">11.15</span><span class="code">Learn</span>
+          <div class="h">Van een goede prompt naar een slimme werkwijze.</div>
+          <p>In een korte praktische masterclass ontdek je hoe je betere resultaten uit AI haalt: context, instructies, bronnen, voorbeelden, controle en herbruikbaarheid. Geen lange presentatie. <strong>20 minuten — daarna ga je het meteen toepassen.</strong></p>
+        </li>
+        <li class="hi build">
+          <span class="t">11.35</span><span class="code">Build 02 · Improve</span>
+          <div class="h">Maak het beter.</div>
+          <p>Terug naar je eigen uitdaging. Je gebruikt wat je zojuist hebt geleerd om je eerste oplossing verder te brengen. Samen met je AI-coach test je, verbeter je en bouw je verder. <strong>Van eerste experiment naar iets dat je echt kunt gebruiken.</strong></p>
+        </li>
+        <li>
+          <span class="t">12.35</span><span class="code">Human Intelligence Lunch</span>
+          <div class="h">AI kan veel. Maar samen eten nog niet.</div>
+          <p>Tijd om je laptop dicht te klappen. We lunchen samen aan tafel met goede, lichte gerechten en genoeg ruimte om ervaringen uit te wisselen. Geen verplicht netwerkprogramma, geen lunchpresentatie. Gewoon goed eten, goede gesprekken en nieuwe ideeën.</p>
+          <p class="tag">Shared lunch · conversation cards · muziek</p>
+        </li>
+        <li>
+          <span class="t">13.35</span><span class="code">Human × Technology</span>
+          <div class="h">Technologie verandert. Mensen gelukkig ook.</div>
+          <p>Na de lunch gaat de laptop nog even niet open. Ben van der Burg neemt ons mee in zijn kijk op technologie, AI, verandering en de rol van de mens daarin. Scherp, energiek en waarschijnlijk een beetje tegendraads.</p>
+          <p class="met">Met Ben van der Burg</p>
+        </li>
+        <li class="hi build">
+          <span class="t">14.00</span><span class="code">Build 03 · Build</span>
+          <div class="h">Nu gaan we echt bouwen.</div>
+          <p>Dit is het grootste werkblok van de dag. Geen presentaties, geen onderbrekingen. Je maakt van je eerste AI-experiment een werkwijze die je vaker kunt gebruiken: een slimme workflow, een AI-project, een GPT, een agent, een automatisering of een andere toepassing die bij jouw werk past. Je hoeft vooraf niet te weten wat je moet bouwen. <strong>Jouw werk staat centraal. Niet de tool.</strong></p>
+        </li>
+        <li>
+          <span class="t">15.20</span><span class="code">Human Energy</span>
+          <div class="h">You have a body too.</div>
+          <p>Na tachtig minuten bouwen is het tijd om letterlijk van je stoel te komen. Muziek aan, laptop dicht. Even lopen, praten, drinken en opladen — met lichte energy bites, fruit, smoothies en natuurlijk koffie en thee.</p>
+          <p class="tag">Dark Mode · No-Code Energy Ball · Green Machine · Vitamin C.exe</p>
+        </li>
+        <li class="hi build">
+          <span class="t">15.50</span><span class="code">Build 04 · Ship</span>
+          <div class="h">Make it work.</div>
+          <p>Nog 50 minuten. Er komt geen nieuwe theorie meer bij — je gaat testen, verbeteren en afmaken. Op de schermen loopt de klok mee: <strong>50:00 — Make it work.</strong> Je AI-coach helpt je met de laatste obstakels. De belangrijkste vraag: <strong>zou jij dit morgen echt gebruiken?</strong> Zo niet, dan bouwen we verder.</p>
+        </li>
+        <li>
+          <span class="t">16.40</span><span class="code">Show &amp; Tell</span>
+          <div class="h">Kijk wat er vandaag is ontstaan.</div>
+          <p>Aan iedere tafel laten deelnemers kort zien wat ze hebben gemaakt: <em>mijn probleem was… dit heb ik gemaakt… en dit ga ik ermee doen.</em> Geen presentaties of PowerPoints — gewoon je laptop omdraaien en laten zien.</p>
+        </li>
+        <li>
+          <span class="t">17.00</span><span class="code">From AI to Action</span>
+          <div class="h">En wat ga je morgen doen?</div>
+          <p>Een goede AI-dag heeft weinig waarde als je de volgende ochtend weer precies hetzelfde gaat werken. Daarom sluiten we niet af met nog meer theorie. Je bepaalt: wat ga ik morgen gebruiken, wat maak ik volgende week slimmer, en wat wil ik over 30 dagen veranderd hebben?</p>
+          <p class="met">Met Hylke Thiry</p>
+        </li>
+        <li>
+          <span class="t">17.20</span><span class="code">The Finale</span>
+          <div class="h">Van idee naar iets dat werkt.</div>
+          <p>We begonnen de dag met <em>“dit wil ik slimmer maken”</em> en eindigen met <em>“dit heb ik gemaakt”</em>. We bekijken een paar van de mooiste resultaten van de dag en sluiten gezamenlijk af.</p>
+        </li>
+        <li>
+          <span class="t">17.35</span><span class="code">Human Afterwork</span>
+          <div class="h">Laptop dicht. Bar open.</div>
+          <p>Nu zijn we echt klaar. Tijd voor muziek, goede drankjes, bijzondere alcoholvrije cocktails en warme bites. De interessantste vraag van de dag is niet “wat doe jij eigenlijk?”, maar <strong>“wat heb jij vandaag gemaakt?”</strong></p>
+          <p class="tag">Human Afterwork · muziek · drinks · bites</p>
+        </li>
+      </ol>
     </div>
 
-    <ol class="timeline">
-      <li>
-        <span class="t">09.00</span><div class="h">Inloop &amp; koffie</div>
-        <p>Binnenkomst in de Grote Kerk. Koffie, je laptop open, en kennismaken met je AI-coach en de mensen aan je tafel.</p>
-        <div class="dur">30 min</div>
-      </li>
-      <li>
-        <span class="t">09.30</span><div class="h">Kick-off &amp; jouw uitdaging scherp</div>
-        <p>Korte plenaire start over hoe de dag werkt. Daarna aan tafel: op basis van je intake maak je samen met je coach scherp wat het resultaat van vandaag moet zijn.</p>
-        <div class="dur">60 min</div>
-      </li>
-      <li class="hi">
-        <span class="t">10.30</span><div class="h">Eerste build</div>
-        <p>Je gaat aan de slag met je eigen taak en je eigen materiaal. Je coach zit naast je, kijkt mee op je scherm en helpt precies op het moment dat je vastloopt.</p>
-        <div class="dur">2 uur · werkblok</div>
-      </li>
-      <li>
-        <span class="t">12.30</span><div class="h">Lunch &amp; spreker één</div>
-        <p>Laptop dicht. Lunch in de kerk en de eerste spreker: over wat AI de komende jaren met werk doet, en wat je daar nu al mee moet.</p>
-        <div class="dur">60 min</div>
-      </li>
-      <li class="hi">
-        <span class="t">13.30</span><div class="h">Bouwen &amp; verdiepen</div>
-        <p>Terug naar je taak: verdiepen, verbeteren en de scherpe randjes eraf. Je coach helpt je de werkwijze robuust en herhaalbaar te maken.</p>
-        <div class="dur">90 min · werkblok</div>
-      </li>
-      <li class="hi">
-        <span class="t">15.00</span><div class="h">Testen op echt werk</div>
-        <p>Draait het op een echte casus uit je week? Wat moet anders? Je stelt bij tot het betrouwbaar genoeg is om er maandag mee te werken.</p>
-        <div class="dur">60 min · werkblok</div>
-      </li>
-      <li>
-        <span class="t">16.00</span><div class="h">Korte pauze &amp; spreker twee</div>
-        <p>Even je hoofd leeg. Een tweede spreker over ondernemen, tempo maken en waarom je niet moet wachten tot alles duidelijk is.</p>
-        <div class="dur">30 min</div>
-      </li>
-      <li>
-        <span class="t">16.30</span><div class="h">Van experiment naar werk</div>
-        <p>Je legt je werkwijze vast — de stappen, de instructies en de prompts — zodat je het morgen herhaalt. En je bepaalt met je coach je volgende AI-kansen.</p>
-        <div class="dur">60 min</div>
-      </li>
-      <li>
-        <span class="t">17.30</span><div class="h">Borrel &amp; laten zien</div>
-        <p>Afsluitende borrel. Je laat aan je tafel zien wat er nu op je laptop staat — en hoort waar anderen mee thuiskomen.</p>
-        <div class="dur">tot 18.30</div>
-      </li>
-    </ol>
+    <div class="cta-row" style="margin-top:2.5rem">
+      <a class="btn btn-primary" href="/#tickets" data-event="cta_reserveer" data-loc="programma">Reserveer mijn werkplek</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINALE-STATEMENT + WAT LEVERT HET OP ===== -->
+<section class="dark" aria-labelledby="h-eind">
+  <div class="wrap stack-lg">
+    <h2 class="bigstmt">AI gaat je werk niet veranderen.<br><em>Wat jij er morgen mee doet wel.</em></h2>
+    <div class="stack">
+      <h3 id="h-eind" style="text-transform:none;color:#fff;font-size:clamp(1.5rem,3vw,2.25rem)">Wat staat er aan het einde van de dag op jouw laptop?</h3>
+      <p class="eind-slot">Je hebt niet alleen naar AI gekeken of erover gepraat. Je hebt ermee gewerkt. Je vertrekt met:</p>
+    </div>
+    <div class="grid grid-3">
+      <article class="card outcome"><span class="num" aria-hidden="true">01</span><div><h3>Een concrete AI-toepassing</h3><p>Voor je eigen werk — getest op je eigen materiaal.</p></div></article>
+      <article class="card outcome"><span class="num" aria-hidden="true">02</span><div><h3>Een slimmere werkwijze</h3><p>Vastgelegd, zodat je die opnieuw kunt gebruiken.</p></div></article>
+      <article class="card outcome"><span class="num" aria-hidden="true">03</span><div><h3>Nieuwe AI-kansen</h3><p>Ideeën voor taken die AI nog meer van je kan overnemen.</p></div></article>
+    </div>
+    <p class="eind-slot lead">En misschien wel het belangrijkste: <strong>je weet hoe je morgen verder moet.</strong></p>
   </div>
 </section>
 
@@ -149,15 +225,15 @@
       <div>
         <ul class="facts" style="margin-top:0">
           <li><b>Locatie</b><span>Grote Kerk, Rond de Grote Kerk 12, Den Haag</span></li>
-          <li><b>Datum</b><span>Maandag 23 november 2026, 09.00 – 18.30 uur</span></li>
+          <li><b>Datum</b><span>Maandag 23 november 2026, vanaf 08.30 uur (inloop &amp; ontbijt)</span></li>
           <li><b>Aan tafel</b><span>Maximaal 6 deelnemers per AI-coach</span></li>
           <li><b>Meenemen</b><span>Je laptop, oplader en één taak uit je eigen werk. Wifi en stroom zijn aanwezig.</span></li>
-          <li><b>Inbegrepen</b><span>Lunch, koffie en borrel in de Grote Kerk.</span></li>
+          <li><b>Inbegrepen</b><span>Ontbijt, lunch, snacks en afsluitende borrel in de Grote Kerk.</span></li>
         </ul>
       </div>
       <div class="stack">
         <h3 style="text-transform:none">Wat je meeneemt naar huis</h3>
-        <p class="muted">Om 17.30 uur staat er een werkende AI-toepassing op je laptop, een vastgelegde werkwijze en een korte lijst met je volgende AI-kansen. Daarmee ga je maandag direct verder.</p>
+        <p class="muted">Aan het einde van de dag staat er een werkende AI-toepassing op je laptop, een vastgelegde werkwijze en een korte lijst met je volgende AI-kansen. Daarmee ga je de volgende ochtend direct verder.</p>
         <a class="btn-link" href="/#programma">Terug naar de samenvatting <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
