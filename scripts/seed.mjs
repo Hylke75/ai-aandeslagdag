@@ -19,7 +19,7 @@ const blokken = [
     subheading: 'Je gebruikt AI al. Nu ga je ermee werken.',
     body: 'Neem een taak mee die je iedere week tijd kost. Samen met je AI-coach maak je die in één dag slimmer, sneller of deels automatisch.',
     price_note: '€595 excl. btw · inclusief lunch, borrel en voorbereidende intake',
-    cta_primair_label: 'Reserveer mijn werkplek — €595', cta_primair_link: '#tickets',
+    cta_primair_label: 'Reserveer mijn werkplek voor €595', cta_primair_link: '#tickets',
     cta_secundair_label: 'Kom met mijn team', cta_secundair_link: '#teams',
     usps: [
       { tekst: 'Maximaal 6 deelnemers per AI-coach' },
@@ -110,7 +110,7 @@ const blokken = [
   } },
   { type: 'mediatekst', content: {
     _sectie: 'voorwie',
-    titel: 'Voor professionals die AI al proberen — en nu verder willen.',
+    titel: 'Voor professionals die AI al proberen en nu verder willen.',
     punten: [
       { tekst: 'Je gebruikt ChatGPT, Copilot of een andere assistent, maar vooral voor losse vragen.' },
       { tekst: 'Je hebt een taak in je week waarvan je weet dat het slimmer kan.' },
@@ -187,7 +187,7 @@ const blokken = [
     titel: 'Een werkdag op een bijzondere plek.',
     feiten: [
       { label: 'Locatie', waarde: 'Grote Kerk, Rond de Grote Kerk 12, Den Haag' },
-      { label: 'Datum', waarde: 'Maandag 23 november 2026, 09.00 – 18.30 uur' },
+      { label: 'Datum', waarde: 'Maandag 23 november 2026, 09.00 tot 18.30 uur' },
       { label: 'Reizen', waarde: '10 minuten lopen vanaf Den Haag Centraal. Parkeren in Q-Park Spui.' },
       { label: 'Meenemen', waarde: 'Je laptop, oplader en één taak uit je eigen werk. Wifi en stroom zijn aanwezig.' },
     ],
@@ -210,7 +210,7 @@ const blokken = [
     _sectie: 'finale',
     titel: 'Je kunt nog maanden blijven ontdekken wat AI allemaal kan.',
     tekst: 'Of je trekt er één dag voor uit en gaat ermee werken.',
-    knoptekst: 'Reserveer mijn werkplek — €595', knop: '#tickets',
+    knoptekst: 'Reserveer mijn werkplek voor €595', knop: '#tickets',
   } },
   { type: 'leadcta', content: {
     _sectie: 'lead',
