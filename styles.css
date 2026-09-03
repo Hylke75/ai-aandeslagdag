@@ -361,6 +361,17 @@ section{padding:var(--section) 0}
 .exp-result .sub{margin-top:1.5rem;color:var(--ink-2);max-width:52ch}
 .exp-result .cta-row{margin-top:2.25rem}
 
+/* Anti-sales teaser (na 'Voor wie?') */
+.antisales-h{font-size:clamp(2.25rem,6vw,4.5rem)}
+.antisales .lead{margin-top:1.5rem;max-width:48ch;color:#D8D8D8}
+.antisales .cta-row{margin-top:2rem}
+
+/* Compacte twijfelvanger (vóór tickets) */
+.twijfel{padding:clamp(2.5rem,5vw,3.5rem) 0}
+.twijfel-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.25rem 1.75rem;border:1px solid var(--line);border-radius:var(--radius);padding:clamp(1.5rem,3vw,2.25rem);background:var(--paper-2)}
+.twijfel-h{text-transform:none;font-size:clamp(1.25rem,2.4vw,1.75rem);letter-spacing:-.01em;max-width:36ch;margin-top:.35rem}
+.twijfel .btn{white-space:nowrap;flex:0 0 auto}
+
 /* Verkorte dagritme op de home */
 .dag-kort{margin-top:clamp(2.5rem,5vw,3.5rem);display:grid;gap:0}
 @media(min-width:760px){.dag-kort{grid-template-columns:1fr 1fr;column-gap:2.5rem}}

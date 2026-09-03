@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voor wie is deze dag niet? · AI Aan De Slag Dag</title>
+<meta name="description" content="De AI Aan De Slag Dag is bewust niet voor iedereen. Doe de eerlijke 60-seconden check en ontdek of deze dag bij je past — zonder e-mailadres of verkooppraatje.">
+<link rel="canonical" href="https://ai-aandeslagdag.nl/voor-wie-niet">
+<!-- Google tag (gtag.js) — GA4 property ai-aandeslagdag.nl -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MYG8ZJJLBD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MYG8ZJJLBD');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+.subhero{padding-top:clamp(3rem,7vw,5rem);padding-bottom:0}
+.terug{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;text-decoration:none;color:var(--ink-2);margin-bottom:1.5rem;font-size:.9375rem}
+.terug:hover{color:var(--pink)}
+.terug svg{width:1.1em;height:1.1em;transform:rotate(180deg)}
+.vwn-hero h1{font-size:clamp(2.5rem,7vw,5.5rem);margin:1rem 0 1.25rem}
+.vwn-hero .intro{font-size:clamp(1.125rem,1.7vw,1.375rem);line-height:1.5;color:var(--ink-2);max-width:54ch}
+.redenen{margin-top:clamp(3rem,7vw,5rem);display:grid;gap:clamp(2.5rem,5vw,4rem);max-width:900px}
+.reden{display:grid;gap:.4rem 2.5rem}
+@media(min-width:820px){.reden{grid-template-columns:150px 1fr;align-items:start}}
+.reden-num{font-size:clamp(3rem,6vw,5rem);font-weight:800;letter-spacing:-.05em;line-height:.8;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.reden h2{text-transform:none;font-size:clamp(1.375rem,2.6vw,2rem);letter-spacing:-.015em;line-height:1.12}
+.reden p{margin-top:.75rem;color:var(--ink-2);max-width:60ch}
+.reden p strong{color:var(--ink)}
+.reden .punch{margin-top:1.1rem;font-size:clamp(1.25rem,2.4vw,1.75rem);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:1.1;max-width:24ch;color:var(--ink)}
+.reden .punch--groot{font-size:clamp(1.75rem,3.6vw,2.75rem)}
+.reden .punch em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.omslag{padding-top:clamp(4rem,10vw,8rem)}
+.omslag-h{font-size:clamp(2.5rem,7vw,5rem)}
+.omslag .lead{margin-top:1.75rem;max-width:54ch}
+.omslag .lead em{font-style:normal;font-weight:700;color:var(--ink)}
+.omslag-statement{margin-top:2.5rem;font-size:clamp(1.75rem,4vw,3rem);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:1.05;max-width:20ch}
+.omslag-statement em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.omslag .cta-row{margin-top:2.25rem}
+.check-sectie{background:var(--paper-2)}
+.check{max-width:660px;margin-top:2.5rem}
+.check-progress{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.check-tel{font-size:.8125rem;font-weight:800;letter-spacing:.14em;color:var(--ink-3);white-space:nowrap}
+.check-bar{flex:1;height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+.check-bar i{display:block;height:100%;background:var(--grad);transition:width .4s ease}
+.check-q{font-size:clamp(1.5rem,3.4vw,2.25rem);text-transform:none;letter-spacing:-.02em;line-height:1.12}
+.check-antwoorden{display:grid;gap:.75rem;margin-top:1.75rem}
+.check-antwoorden button{text-align:left;padding:1.1rem 1.35rem;border:1.5px solid var(--line);border-radius:var(--radius-btn);background:#fff;font:inherit;font-weight:700;font-size:1.0625rem;color:var(--ink);cursor:pointer;transition:border-color .15s,transform .1s}
+.check-antwoorden button:hover{border-color:var(--pink)}
+.check-antwoorden button:active{transform:translateY(1px)}
+.check-antwoorden button:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.check-uitslag h3{font-size:clamp(2rem,5vw,3.25rem);text-transform:none;letter-spacing:-.02em;margin-bottom:1rem;outline:none}
+.u-tekst{color:var(--ink-2);max-width:54ch;font-size:1.0625rem;line-height:1.6}
+.check-feiten{list-style:none;padding:0;margin:1.75rem 0;display:grid;gap:.5rem;font-weight:700;color:var(--ink)}
+.u-sub{margin-top:1rem}.u-sub a{color:var(--pink);font-weight:700}
+.check-uitslag .cta-row{margin-top:1.75rem}
+.check-fade{animation:checkfade .35s ease}
+@keyframes checkfade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.check-fade{animation:none}.check-bar i{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="AI Aan De Slag Dag, naar de homepage">
+      <img src="/logo-brand.png" alt="">
+      <span>AI Aan De Slag Dag</span>
+    </a>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a href="/#wat">Wat ga je doen?</a>
+      <a href="/#voor-wie">Voor wie?</a>
+      <a href="/#coaches">AI-coaches</a>
+      <a href="/programma" aria-current="page">Programma</a>
+      <a href="/#teams">Teams</a>
+      <a href="/#faq">FAQ</a>
+      <a class="btn btn-primary" href="/#tickets" data-event="cta_reserveer" data-loc="header">Reserveer</a>
+    </nav>
+    <button class="burger" aria-label="Menu openen" aria-expanded="false" aria-controls="mobileNav"><span></span></button>
+  </div>
+</header>
+<div class="mobile-nav" id="mobileNav" data-open="false">
+  <a href="/#wat">Wat ga je doen?</a>
+  <a href="/#voor-wie">Voor wie?</a>
+  <a href="/#coaches">AI-coaches</a>
+  <a href="/programma" aria-current="page">Programma</a>
+  <a href="/#teams">Teams</a>
+  <a href="/#faq">FAQ</a>
+  <a class="btn btn-primary" href="/#tickets" data-event="cta_reserveer" data-loc="mobile_nav">Reserveer mijn werkplek</a>
+</div>
+
+
+<main id="top">
+
+<section class="subhero vwn-hero" aria-labelledby="h-top">
+  <div class="wrap">
+    <a class="terug" href="/#voor-wie"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Terug naar 'Voor wie?'</a>
+    <p class="eyebrow eyebrow--accent">Voor wie is deze dag niet?</p>
+    <h1 id="h-top">Misschien moet je<br>helemaal niet komen.</h1>
+    <p class="intro">De AI Aan De Slag Dag is niet voor iedereen. Sterker nog: als je jezelf hieronder herkent, kun je die €595 waarschijnlijk beter ergens anders aan besteden.</p>
+  </div>
+</section>
+
+<section aria-label="Wanneer je niet moet komen">
+  <div class="wrap">
+    <div class="redenen">
+      <article class="reden">
+        <span class="reden-num" aria-hidden="true">01</span>
+        <div><h2>Je wilt vooral luisteren</h2><p>Dan moet je niet komen. Dit is geen congres waar je acht uur in een stoel zit terwijl anderen vertellen hoe geweldig AI is. Je laptop gaat open. Je gaat proberen, bouwen, fouten maken, verbeteren en opnieuw proberen.</p></div>
+      </article>
+      <article class="reden">
+        <span class="reden-num" aria-hidden="true">02</span>
+        <div><h2>Je wilt weten hoe de wereld er over vijf jaar uitziet</h2><p>Interessant. Maar daar organiseren we deze dag niet voor. Wij zijn veel nieuwsgieriger naar wat AI <strong>morgen al</strong> met jouw werk kan doen.</p></div>
+      </article>
+      <article class="reden">
+        <span class="reden-num" aria-hidden="true">03</span>
+        <div><h2>Je wilt gewoon wat handige prompts verzamelen</h2><p>Daar hoef je geen €595 voor uit te geven. Prompts vind je overal. Wij willen dat je begrijpt hoe je AI inzet voor jouw eigen werk — en hoe je daar een werkwijze van maakt die je vaker kunt gebruiken.</p></div>
+      </article>
+      <article class="reden">
+        <span class="reden-num" aria-hidden="true">04</span>
+        <div><h2>Je verwacht dat wij precies vertellen welke tool je moet gebruiken</h2><p>Ook dan wordt het waarschijnlijk een teleurstelling. ChatGPT. Claude. Copilot. Gemini. Agents. Automatiseringen. Tools veranderen.</p><p class="punch">Jouw werk is het vertrekpunt. <em>Niet de tool.</em></p></div>
+      </article>
+      <article class="reden">
+        <span class="reden-num" aria-hidden="true">05</span>
+        <div><h2>Je wilt liever niet laten zien waar je nog niet goed in bent</h2><p>Dan kan deze dag soms ongemakkelijk worden. Je gaat dingen proberen die niet meteen lukken. Je coach kijkt mee. Je tafelgenoten zien waar jij tegenaan loopt. En andersom. Dat is precies de bedoeling.</p></div>
+      </article>
+      <article class="reden">
+        <span class="reden-num" aria-hidden="true">06</span>
+        <div><h2>Je komt vooral voor de sprekers</h2><p>Jarno Duursma en Ben van der Burg zijn er niet om de hele dag te vullen. Ze zijn er om je aan het denken te zetten, energie te geven en je perspectief te veranderen. Daarna gaat je laptop weer open.</p><p class="punch">Het belangrijkste programmaonderdeel <em>ben jij.</em></p></div>
+      </article>
+      <article class="reden">
+        <span class="reden-num" aria-hidden="true">07</span>
+        <div><h2>Je wilt de volgende dag gewoon weer verder werken zoals je altijd deed</h2><p>Dan kunnen we je deze dag echt afraden. Want om 17.30 uur willen we dat er iets op je laptop staat waarvan je denkt:</p><p class="punch punch--groot"><em>“Dit ga ik morgen gebruiken.”</em></p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="omslag" aria-labelledby="h-omslag">
+  <div class="wrap">
+    <h2 id="h-omslag" class="omslag-h">Nog steeds<br>aan het lezen?</h2>
+    <p class="lead">Mooi. Dan wordt het interessant. Want als je denkt: <em>“ik wil niet nóg meer over AI horen. Ik wil eindelijk ontdekken wat het met míjn werk kan”</em> — dan ben je waarschijnlijk precies degene voor wie we deze dag organiseren.</p>
+    <p class="omslag-statement">Neem je werk mee.<br>Wij zetten er een AI-coach naast.<br><em>En dan gaan we bouwen.</em></p>
+    <div class="cta-row"><a class="btn btn-primary" href="#check" data-event="self_selection_teaser_click" data-loc="omslag">Bekijk of deze dag bij mij past →</a></div>
+  </div>
+</section>
+
+<section class="check-sectie" id="check" aria-labelledby="h-check">
+  <div class="wrap">
+    <p class="eyebrow eyebrow--accent">De 60-seconden check</p>
+    <h2 id="h-check">Is deze dag voor jou?</h2>
+    <p class="lead">Vijf vragen. Geen e-mailadres. Geen verkooppraatje. Gewoon even checken.</p>
+    <div class="check" data-check>
+      <div class="check-vraag" data-vraag></div>
+      <div class="check-uitslag" data-uitslag hidden></div>
+      <noscript><p class="u-tekst" style="margin-top:2rem">Zet JavaScript aan voor de check, of <a href="/programma">bekijk het programma</a>.</p></noscript>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <img src="/logo-footer.png" alt="AI Aan De Slag Dag – in één dag echt werken met AI">
+      <p class="footer-tagline">De praktische AI-werkdag voor professionals. In één dag van AI proberen naar echt werken met AI.</p>
+      <p class="footer-org">Een initiatief van <strong>Hylke Thiry</strong> · Promotie- &amp; Communicatiebegeleiding</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/ai-aan-de-slag-dag/" target="_blank" aria-label="Volg AI Aan De Slag Dag op LinkedIn" rel="noopener noreferrer" data-event="social" data-loc="linkedin"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4v16h-4zM8 8h3.83v2.19h.05c.53-1 1.84-2.19 3.79-2.19 4.05 0 4.8 2.67 4.8 6.14V24h-4v-7.03c0-1.68-.03-3.84-2.34-3.84-2.35 0-2.7 1.83-2.7 3.72V24H8z"/></svg></a>
+        <a href="https://www.instagram.com/ai_aandeslagdag/" target="_blank" aria-label="Volg AI Aan De Slag Dag op Instagram" rel="noopener noreferrer" data-event="social" data-loc="instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+
+    <nav class="footer-col" aria-label="Footer navigatie ontdek">
+      <h3>Ontdek</h3>
+      <ul>
+        <li><a href="/#wat">Wat ga je doen?</a></li>
+        <li><a href="/#voor-wie">Voor wie?</a></li>
+        <li><a href="/voor-wie-niet">Voor wie is deze dag niet?</a></li>
+        <li><a href="/#coaches">AI-coaches</a></li>
+        <li><a href="/programma">Programma</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer-col">
+      <h3>Reserveren</h3>
+      <ul>
+        <li><a href="/#tickets" data-event="cta_reserveer" data-loc="footer">Individuele werkplek</a></li>
+        <li><a href="/#teams" data-event="cta_team" data-loc="footer">Teamtafel</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <ul class="footer-contact">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><a href="mailto:contact@ai-aandeslagdag.nl">contact@ai-aandeslagdag.nl</a></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Grote Kerk · Rond de Grote Kerk 12, Den Haag</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>Maandag 23 november 2026</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap footer-bottom">
+    <p>© 2026 AI Aan De Slag Dag · een initiatief van Hylke Thiry | Promotie- &amp; Communicatiebegeleiding · KvK 74563270 · btw NL195051208B04</p>
+    <ul>
+      <li><a href="/privacy">Privacy</a></li>
+      <li><a href="/voorwaarden">Algemene voorwaarden</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Chatbot-widget -->
+<script src="https://www.chatbot-builder.com/widget.js" data-agent="slag-goi5jc" async></script>
+<script>
+(function(){
+  var burger=document.querySelector('.burger'),nav=document.getElementById('mobileNav');
+  if(burger&&nav){
+    burger.addEventListener('click',function(){var o=nav.getAttribute('data-open')==='true';nav.setAttribute('data-open',String(!o));burger.setAttribute('aria-expanded',String(!o));document.body.style.overflow=o?'':'hidden';});
+    nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){burger.click();});});
+  }
+  document.addEventListener('click',function(e){var el=e.target.closest('[data-event]');if(!el)return;var ev=el.getAttribute('data-event');if(typeof gtag==='function')gtag('event',ev,{loc:el.getAttribute('data-loc')||null});(window.dataLayer=window.dataLayer||[]).push({event:ev});});
+})();
+</script>
+<script>
+(function(){
+  var root=document.querySelector('[data-check]'); if(!root) return;
+  var vraagEl=root.querySelector('[data-vraag]'), uitslagEl=root.querySelector('[data-uitslag]');
+  function track(n){ try{ if(typeof gtag==='function') gtag('event',n); (window.dataLayer=window.dataLayer||[]).push({event:n}); }catch(e){} }
+  var vragen=[
+    {q:'Heb je AI zoals ChatGPT, Copilot of Claude al eens gebruikt?', a:[['Ja, regelmatig',1],['Een beetje',1],['Nog nauwelijks',0]]},
+    {q:'Kun je een taak uit je werk bedenken waarvan je denkt: &ldquo;dit moet slimmer kunnen&rdquo;?', a:[['Ja, meteen',2],['Waarschijnlijk wel',1],['Niet echt',0]]},
+    {q:'Wat doe je liever?', a:[['Zelf proberen en leren door te doen',2,'doen'],['Eerst een paar uur luisteren naar experts',0,'luisteren']]},
+    {q:'Vind je het oké als iets de eerste keer niet meteen lukt?', a:[['Ja. Daar leer ik juist van.',2],['Liever niet.',0]]},
+    {q:'Wat wil je om 17.30 uur liever meenemen?', a:[['Een hoofd vol nieuwe ideeën',0],['Iets op mijn laptop dat ik morgen kan gebruiken',3]]}
+  ];
+  var UIT={
+    strong:'<h3 tabindex="-1">Dan moet je waarschijnlijk wél komen.</h3><p class="u-tekst">Je hoeft geen AI-expert te zijn. Je moet vooral nieuwsgierig genoeg zijn om te proberen en een onderdeel van je werk willen verbeteren. Tijdens de AI Aan De Slag Dag werk je niet aan een fictieve case — je werkt aan je eigen werk.</p><ul class="check-feiten"><li>23 november 2026</li><li>Grote Kerk Den Haag</li><li>&euro;595 excl. btw</li><li>Maximaal 6 deelnemers per AI-coach</li></ul><div class="cta-row"><a class="btn btn-primary" href="/#tickets" data-event="self_selection_ticket_click">Ja. Ik wil een werkplek →</a><a class="btn btn-outline" href="/programma" data-event="self_selection_program_click">Bekijk het programma →</a></div>',
+    possible:'<h3 tabindex="-1">Dit kan heel goed jouw dag zijn.</h3><p class="u-tekst">Je hoeft nog niet precies te weten wat je wilt bouwen. Maar je moet wel bereid zijn om zelf met je werk aan de slag te gaan. Onze AI-coaches helpen je om je uitdaging scherp te krijgen en stap voor stap iets bruikbaars te maken.</p><div class="cta-row"><a class="btn btn-primary" href="/programma" data-event="self_selection_program_click">Bekijk hoe de dag werkt →</a></div><p class="u-sub"><a href="/#tickets" data-event="self_selection_ticket_click">Of reserveer meteen je werkplek →</a></p>',
+    low:'<h3 tabindex="-1">Misschien is dit niet jouw dag.</h3><p class="u-tekst">Als je vooral inspiratie zoekt, graag luistert en nog niet zelf wilt experimenteren, zijn er waarschijnlijk AI-events die beter bij je passen. En dat is prima. Deze dag is bewust gemaakt voor mensen die zelf willen proberen, bouwen en verbeteren.</p><div class="cta-row"><a class="btn btn-outline" href="/programma" data-event="self_selection_program_click">Toch even het programma bekijken →</a></div>'
+  };
+  var i=0, score=0, q3=null, gestart=false;
+  function toon(){
+    var v=vragen[i], tot=vragen.length;
+    var h='<div class="check-progress"><span class="check-tel">'+String(i+1).padStart(2,'0')+' / '+String(tot).padStart(2,'0')+'</span><span class="check-bar"><i style="width:'+Math.round((i+1)/tot*100)+'%"></i></span></div>';
+    h+='<h3 class="check-q">'+v.q+'</h3><div class="check-antwoorden"></div>';
+    vraagEl.innerHTML=h;
+    var wrap=vraagEl.querySelector('.check-antwoorden');
+    v.a.forEach(function(ans){var b=document.createElement('button');b.type='button';b.textContent=ans[0];b.addEventListener('click',function(){kies(ans);});wrap.appendChild(b);});
+    vraagEl.classList.remove('check-fade'); void vraagEl.offsetWidth; vraagEl.classList.add('check-fade');
+    var q=vraagEl.querySelector('.check-q'); if(q&&i>0){q.setAttribute('tabindex','-1');q.focus();}
+  }
+  function kies(ans){
+    if(!gestart){gestart=true;track('self_selection_started');}
+    score+=ans[1]; if(ans[2])q3=ans[2];
+    track('self_selection_question_'+(i+1));
+    i++;
+    if(i<vragen.length){toon();}else{klaar();}
+  }
+  function klaar(){
+    track('self_selection_completed');
+    var r = score>=7?'strong':(score>=4?'possible':'low');
+    if(q3==='luisteren' && r==='strong') r='possible';
+    track('self_selection_result_'+(r==='strong'?'strong_match':r==='possible'?'possible_match':'low_match'));
+    vraagEl.hidden=true; uitslagEl.hidden=false; uitslagEl.innerHTML=UIT[r]; uitslagEl.classList.add('check-fade');
+    uitslagEl.querySelectorAll('a[data-event]').forEach(function(a){a.addEventListener('click',function(){track(a.getAttribute('data-event'));});});
+    var hh=uitslagEl.querySelector('h3'); if(hh)hh.focus();
+  }
+  toon();
+})();
+</script>
+</body>
+</html>
