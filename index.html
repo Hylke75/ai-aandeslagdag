@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Aan De Slag Dag · 23 november 2026 · Grote Kerk Den Haag</title>
 <meta name="description" content="Laat AI meer van je werk doen. Neem een taak mee die je iedere week tijd kost en maak die in één dag slimmer met je AI-coach. Maximaal 6 deelnemers per coach. €595 excl. btw.">
+<!-- Google tag (gtag.js) — GA4 property ai-aandeslagdag.nl -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MYG8ZJJLBD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MYG8ZJJLBD');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
@@ -524,7 +532,7 @@
     if(!el)return;
     var payload={event:el.getAttribute('data-event'),loc:el.getAttribute('data-loc')||null,ticket:el.getAttribute('data-ticket')||null};
     (window.dataLayer=window.dataLayer||[]).push(payload);
-    if(!window.google_tag_manager)console.log('analytics',payload);
+    if(typeof gtag==='function')gtag('event',payload.event,{loc:payload.loc,ticket:payload.ticket});
     if(el.getAttribute('href')==='#')e.preventDefault();
   });
 
@@ -638,32 +646,34 @@
     voorbeelden: function(root, c){
       Tsel(root, '#h-vb', c.titel);
       Tsel(root, '.lead.muted', c.intro);
-      if(!Array.isArray(c.tabs) || !c.tabs.length) return;
+      var items = Array.isArray(c.items) ? c.items : [];
+      if(!items.length) return;
+      // Plat model → groepeer per tab, met behoud van volgorde.
+      var order = [], groups = {};
+      items.forEach(function(it){ var tab = isTekst(it.tab) ? it.tab : 'Overig'; if(!groups[tab]){ groups[tab]=[]; order.push(tab); } groups[tab].push(it); });
       var tablist = root.querySelector('.tabs');
       var panelsWrap = tablist ? tablist.parentNode : null;
       if(!tablist || !panelsWrap) return;
       var tabTmpl = tablist.querySelector('.tab').cloneNode(true);
-      var panels = root.querySelectorAll('.panel');
-      var panelTmpl = panels[0] ? panels[0].cloneNode(true) : null;
-      var cardTmpl = panelTmpl ? panelTmpl.querySelector('.role-card').cloneNode(true) : null;
-      if(!panelTmpl || !cardTmpl) return;
-      // opruimen
+      var panelTmpl = root.querySelector('.panel') ? root.querySelector('.panel').cloneNode(true) : null;
+      if(!panelTmpl || !panelTmpl.querySelector('.role-card')) return;
       tablist.innerHTML = '';
       Array.prototype.slice.call(root.querySelectorAll('.panel')).forEach(function(p){ p.remove(); });
-      c.tabs.forEach(function(tab, i){
+      var after = tablist;
+      order.forEach(function(tab, i){
         var id = 'p-cms-' + i, tid = 't-cms-' + i, on = i === 0;
         var tb = tabTmpl.cloneNode(true);
-        tb.textContent = tab.label || ('Tab ' + (i+1));
+        tb.textContent = tab;
         tb.id = tid; tb.setAttribute('aria-controls', id); tb.setAttribute('aria-selected', String(on)); tb.tabIndex = on?0:-1;
         tablist.appendChild(tb);
         var pn = panelTmpl.cloneNode(true);
         pn.id = id; pn.setAttribute('aria-labelledby', tid); pn.setAttribute('data-active', String(on));
-        var cards = (tab.kaarten||[]);
-        mapItems(pn, 'article.role-card', cards, function(el, k){
+        mapItems(pn, 'article.role-card', groups[tab], function(el, k){
           var ps = el.querySelectorAll('p');
           if(ps[0]) T(ps[0], k.nu); if(ps[1]) T(ps[1], k.met);
         });
-        panelsWrap.insertBefore(pn, tablist.nextSibling);
+        panelsWrap.insertBefore(pn, after.nextSibling);
+        after = pn;
       });
       wireTabs(root);
     },
@@ -686,7 +696,7 @@
       Tsel(root, '.six-label', c.cijfer_label);
       Tsel(root, '#h-coach', c.titel);
       Tsel(root, 'h3', c.sub);
-      var ps = root.querySelectorAll('p'); if(ps.length && isTekst(c.tekst)) ps[0].textContent = c.tekst;
+      Tsel(root, 'p:not(.six-label):not(.loop)', c.tekst);   // de bodytekst (niet het cijfer-label)
       simpleList(root.querySelector('.loop'), 'span', c.loop, 'tekst');
     },
     voorwie: function(root, c){
@@ -712,7 +722,7 @@
     tools: function(root, c){
       Tsel(root, '#h-tools', c.titel);
       Tsel(root, 'h3', c.sub);
-      var ps = root.querySelectorAll('p'); if(ps.length && isTekst(c.tekst)) ps[0].textContent = c.tekst;
+      Tsel(root, 'p:not(.tools-row)', c.tekst);   // de bodytekst (niet de tool-namenrij)
       simpleList(root.querySelector('.tools-row'), 'span', c.tools, 'tekst');
     },
     programma: function(root, c){
@@ -731,7 +741,9 @@
       if(!wrap || !Array.isArray(c.items) || !c.items.length) return;
       wrap.innerHTML = c.items.map(function(it){
         var team = it.accent === true || it.accent === 'ja';
-        var incl = (it.incl||[]).map(function(x){ var t = typeof x==='string'?x:(x&&x.tekst); return isTekst(t) ? ('<li>'+CHECK+esc(t)+'</li>') : ''; }).join('');
+        var inclArr = Array.isArray(it.incl) ? it.incl.map(function(x){ return typeof x==='string'?x:(x&&x.tekst); })
+                       : (typeof it.incl==='string' ? it.incl.split(/\r?\n/) : []);
+        var incl = inclArr.map(function(t){ return isTekst(t) ? ('<li>'+CHECK+esc(t.trim())+'</li>') : ''; }).join('');
         return '<article class="card price-card'+(team?' price-card--team':'')+'">'
           + (isTekst(it.badge) ? '<span class="badge">'+esc(it.badge)+'</span>' : '')
           + '<h3>'+esc(it.naam)+'</h3>'
