@@ -79,6 +79,40 @@ section{padding:var(--section) 0}
 .cookiebar-accept{background:#fff;color:var(--ink)}
 .cookiebar-accept:hover{background:var(--pink);color:#fff}
 @media(max-width:620px){.cookiebar-in{flex-direction:column;align-items:stretch}.cookiebar-acties{width:100%}.cookiebar-btn{flex:1}}
+
+/* ---------- Blog ---------- */
+.blog-hero-lead{margin-top:1.25rem;max-width:44ch;color:var(--ink-2);font-size:1.125rem;line-height:1.55}
+.blog-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;margin-top:1rem}
+@media(min-width:640px){.blog-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:980px){.blog-grid{grid-template-columns:repeat(3,1fr)}}
+.blog-grid--3{margin-top:2rem}
+.post-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s,box-shadow .2s}
+.post-card:hover{border-color:var(--pink);transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.07)}
+.post-card-top{display:block;height:8px;background:var(--grad)}
+.post-card-body{display:flex;flex-direction:column;gap:.7rem;padding:1.5rem}
+.post-card-rubriek{align-self:flex-start;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--pink)}
+.post-card-titel{font-size:1.25rem;line-height:1.2;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+.post-card-samenvatting{color:var(--ink-2);font-size:.9375rem;line-height:1.5;flex:1}
+.post-card-meta{color:var(--ink-3);font-size:.8125rem;font-weight:500}
+.blog-cta{margin-top:3.5rem;padding:2.5rem;border-radius:var(--radius);background:var(--paper-2);text-align:center}
+.blog-cta h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;letter-spacing:-.02em}
+.blog-cta p{margin:.75rem auto 1.5rem;max-width:42ch;color:var(--ink-2)}
+/* Artikel */
+.article-head{max-width:760px}
+.article-rubriek{margin-top:.5rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--pink)}
+.article-head h1{margin-top:.75rem;font-size:clamp(2rem,5vw,3.25rem);line-height:1.05;letter-spacing:-.02em;font-weight:800}
+.article-meta{margin-top:1.25rem;color:var(--ink-3);font-size:.9375rem;font-weight:500}
+.article-lead{max-width:760px;margin-top:2.25rem}
+.article-antwoord{padding:1.5rem 1.75rem;border-left:4px solid var(--pink);background:var(--paper-2);border-radius:0 var(--radius) var(--radius) 0;font-size:1.1875rem;line-height:1.4;font-weight:700;color:var(--ink)}
+.article-samenvatting{margin-top:1.75rem;font-size:1.25rem;line-height:1.55;color:var(--ink-2)}
+.article-body{max-width:680px;margin-top:2rem}
+.article-body p{margin-top:1.4rem;font-size:1.0625rem;line-height:1.7;color:var(--ink)}
+.article-body p:first-child{margin-top:0}
+.article-cta{max-width:760px;margin-top:3.5rem;padding:2.5rem;border-radius:var(--radius);background:var(--ink);color:#fff}
+.article-cta h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;letter-spacing:-.02em}
+.article-cta p{margin:.75rem 0 1.75rem;max-width:48ch;color:#D8D8D8}
+.article-related{margin-top:4rem;margin-bottom:1rem}
+.article-related h2{font-size:1.5rem;font-weight:800;letter-spacing:-.01em}
 .btn-link:hover{color:var(--pink)}
 .btn-link svg{width:1.1em;height:1.1em;transition:transform .18s}
 .btn-link:hover svg{transform:translateX(4px)}
