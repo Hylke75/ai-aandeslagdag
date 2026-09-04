@@ -12,7 +12,7 @@ import { posts, AUTEUR } from './blog-content.mjs'
 const DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const BLOGDIR = path.join(DIR, 'blog')
 const BASE = 'https://ai-aandeslagdag.nl'
-const CSS = '/styles.css?v=6'
+const CSS = '/styles.css?v=7'
 
 const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]))
 const MAAND = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december']
