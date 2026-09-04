@@ -148,6 +148,19 @@ section{padding:var(--section) 0}
 .co-klaar p{color:var(--ink-2);line-height:1.55;margin:0 0 .6rem}
 .co-klaar-sub{font-size:.875rem;color:var(--ink-3)}
 .co-klaar .btn{margin-top:1rem}
+
+/* ---------- Beheer-/annuleerpagina ---------- */
+.beheer-kaart{margin-top:1.5rem;padding:1.75rem;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper-2)}
+.beheer-kaart h2{font-size:1.375rem;font-weight:800;letter-spacing:-.01em;margin:0}
+.beheer-datum{margin:.4rem 0 0;color:var(--ink-2)}
+.beheer-dl{margin:1.25rem 0 0;display:grid;gap:.6rem}
+.beheer-dl div{display:flex;gap:.75rem;font-size:.9375rem}
+.beheer-dl dt{color:var(--ink-3);min-width:110px}
+.beheer-dl dd{margin:0;font-weight:600;color:var(--ink)}
+#beheer-actie{margin-top:1.75rem}
+.beheer-vraag{margin:0 0 1rem;color:var(--ink-2)}
+.beheer-geannuleerd{color:var(--ink-2);font-weight:600}
+.beheer-hulp{margin-top:1.75rem;color:var(--ink-3);font-size:.875rem}
 .post-card-body{display:flex;flex-direction:column;gap:.7rem;padding:1.5rem}
 .post-card-rubriek{align-self:flex-start;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--pink)}
 .post-card-titel{font-size:1.25rem;line-height:1.2;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
