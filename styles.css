@@ -161,6 +161,19 @@ section{padding:var(--section) 0}
 .beheer-vraag{margin:0 0 1rem;color:var(--ink-2)}
 .beheer-geannuleerd{color:var(--ink-2);font-weight:600}
 .beheer-hulp{margin-top:1.75rem;color:var(--ink-3);font-size:.875rem}
+.beheer-agenda{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+.beheer-agenda .btn{min-height:44px;padding:.6rem 1.1rem;font-size:.875rem}
+.beheer-prep{margin-top:2rem}
+.beheer-prep h2{font-size:1.375rem;font-weight:800;letter-spacing:-.01em;margin:0 0 1rem}
+.beheer-checks{list-style:none;padding:0;margin:0;display:grid;gap:1rem}
+.beheer-checks li{display:flex;gap:.9rem;align-items:flex-start;line-height:1.5}
+.beheer-checks li svg{flex:0 0 22px;width:22px;height:22px;color:var(--pink);margin-top:.15rem}
+.beheer-checks strong{color:var(--ink)}
+.beheer-checks span{color:var(--ink-2);font-size:.9375rem}
+.beheer-checks a{color:var(--pink);font-weight:700;white-space:nowrap}
+.beheer-annuleer{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.beheer-annuleer-link{background:none;border:0;font:inherit;font-size:.9375rem;color:var(--ink-3);text-decoration:underline;cursor:pointer;padding:.4rem 0}
+.beheer-annuleer-link:hover{color:var(--ink-2)}
 .post-card-body{display:flex;flex-direction:column;gap:.7rem;padding:1.5rem}
 .post-card-rubriek{align-self:flex-start;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--pink)}
 .post-card-titel{font-size:1.25rem;line-height:1.2;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
