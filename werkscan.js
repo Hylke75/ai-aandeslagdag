@@ -221,8 +221,8 @@
     try { sessionStorage.removeItem(SKEY); } catch (e) {}
     root.innerHTML = "";
     var box = el("div", { class: "ws-result" });
-    box.appendChild(el("p", { class: "ws-eyebrow" }, "Hier zitten jouw grootste AI-kansen."));
-    box.appendChild(el("h2", { class: "ws-result-h" }, esc(voornaam) + ", " + esc(CFG.resultHeadline.join(" ").toLowerCase()) + "."));
+    box.appendChild(el("p", { class: "ws-eyebrow" }, "Je AI WerkScan-uitslag"));
+    box.appendChild(el("h2", { class: "ws-result-h" }, esc(voornaam) + ", dit zijn jouw grootste AI-kansen."));
     if (CFG.nuance) box.appendChild(el("p", { class: "ws-nuance" }, esc(CFG.nuance)));
     if (CFG.groot) box.appendChild(el("p", { class: "ws-groot" }, esc(CFG.groot)));
 
@@ -255,7 +255,7 @@
     var cta = el("a", { class: "btn btn-primary ws-event-cta", href: isTeam ? "/#teams" : "/#tickets" }, isTeam ? "Dit wil ik met mijn team doen &rarr;" : "Dit wil ik bouwen &rarr;");
     cta.addEventListener("click", function () { track("audience_scan_event_cta_click", { ticket: CFG.ticket }); });
     ev.appendChild(cta);
-    ev.appendChild(el("p", { class: "ws-mailnote" }, "We sturen deze uitslag ook naar " + esc((document.getElementById("ws-em") ? "" : "")) + "je mail."));
+    ev.appendChild(el("p", { class: "ws-mailnote" }, "We sturen deze uitslag ook naar je e-mail."));
     box.appendChild(ev);
     root.appendChild(box);
     scrollIntoView();
