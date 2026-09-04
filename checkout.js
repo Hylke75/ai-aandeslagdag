@@ -35,7 +35,7 @@
           '<div class="co-veld"><label for="co-naam">Naam</label><input id="co-naam" name="naam" type="text" autocomplete="name" required maxlength="120"></div>' +
           '<div class="co-veld"><label for="co-email">E-mailadres</label><input id="co-email" name="email" type="email" autocomplete="email" required maxlength="160"></div>' +
           '<div class="co-rij"><div class="co-veld"><label for="co-bedrijf">Bedrijf</label><input id="co-bedrijf" name="bedrijf" type="text" autocomplete="organization" maxlength="160"></div>' +
-          '<div class="co-veld"><label for="co-tel">Telefoon <span class="co-opt">(optioneel)</span></label><input id="co-tel" name="telefoon" type="tel" autocomplete="tel" maxlength="40"></div></div>' +
+          '<div class="co-veld"><label for="co-tel">Telefoon</label><input id="co-tel" name="telefoon" type="tel" autocomplete="tel" required maxlength="40"></div></div>' +
           '<div class="co-veld"><label for="co-adres">Factuuradres <span class="co-opt">(optioneel)</span></label><input id="co-adres" name="factuur_adres" type="text" autocomplete="street-address" maxlength="160"></div>' +
           '<div class="co-rij"><div class="co-veld"><label for="co-pc">Postcode</label><input id="co-pc" name="factuur_postcode" type="text" maxlength="16" autocomplete="postal-code"></div>' +
           '<div class="co-veld"><label for="co-plaats">Plaats</label><input id="co-plaats" name="factuur_plaats" type="text" maxlength="80" autocomplete="address-level2"></div></div>' +
@@ -84,6 +84,7 @@
     var naam = form.naam.value.trim(), email = form.email.value.trim();
     if (!naam) return fout(form, "Vul je naam in.");
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return fout(form, "Vul een geldig e-mailadres in.");
+    if (form.telefoon.value.trim().replace(/[^0-9]/g, "").length < 8) return fout(form, "Vul een geldig telefoonnummer in.");
     if (!form.akkoord.checked) return fout(form, "Je moet akkoord gaan met de voorwaarden.");
     bezig = true;
     var btn = form.querySelector(".co-submit"); if (btn) btn.disabled = true;
