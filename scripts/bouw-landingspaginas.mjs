@@ -10,7 +10,7 @@ import { CONFIGS, SLUGS } from './werkscan-configs.mjs'
 
 const DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const BASE = 'https://ai-aandeslagdag.nl'
-const CSS = '/styles.css?v=9'
+const CSS = '/styles.css?v=10'
 const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]))
 
 const PROG = [
@@ -22,7 +22,9 @@ const PROG = [
   ['Ship', 'Test hem. Leg hem vast. Zorg dat je hem morgen kunt gebruiken.'],
 ]
 const FAQ = [
-  ['Moet ik technisch zijn?', 'Nee. Je werkt met documenten, mails, data of mensen, niet met code. Je AI-coach helpt je op weg.'],
+  ['Werken we alleen met ChatGPT?', 'Nee. ChatGPT is één van de tools die relevant kan zijn, net als Claude, Gemini en Copilot. Maar AI gaat inmiddels verder dan chatbots: afhankelijk van je werkvraag kunnen ook tools voor research, bouwen en automatisering passen, zoals Perplexity, Lovable, Claude Code, Cursor of n8n. We beginnen niet bij de tool, maar bij wat jij met je werk wilt verbeteren.'],
+  ['Moet ik kunnen programmeren?', 'Nee. Veel toepassingen bouw je zonder code. Wil je technischer werken of heb je al programmeerervaring, dan kunnen tools als Claude Code of Cursor juist interessant zijn. Maar programmeerkennis is geen voorwaarde om mee te doen.'],
+  ['Moet ik al deze tools hebben?', 'Nee. Je hoeft niet vooraf accounts voor alle genoemde tools aan te maken. Je werkt met wat relevant en beschikbaar is voor jouw case.'],
   ['Wat neem ik mee?', 'Je eigen laptop en één terugkerende taak uit je eigen werk. Daar bouw je die dag een slimmere werkwijze omheen.'],
   ['Wat heb ik aan het einde van de dag?', 'Iets dat af is: een werkwijze of toepassing die je de dag erna kunt gebruiken. Geen lijst met tools.'],
   ['Hoeveel mensen zijn er per coach?', 'Maximaal 6 deelnemers per AI-coach, zodat er echt aandacht is voor jouw werk.'],

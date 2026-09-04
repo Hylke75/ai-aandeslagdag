@@ -33,7 +33,7 @@ export default async function handler(req, res) {
     return;
   }
 
-  const kansen = Array.isArray(body.kansen) ? body.kansen.slice(0, 3).map((k) => ({ titel: str(k && k.titel, 120), waarom: str(k && k.waarom, 600) })) : [];
+  const kansen = Array.isArray(body.kansen) ? body.kansen.slice(0, 3).map((k) => ({ titel: str(k && k.titel, 120), waarom: str(k && k.waarom, 600), tools: str(k && k.tools, 200) })) : [];
   const opps = kansen.map((k) => k.titel).filter(Boolean);
   const advies = str(body.start, 600), build = str(body.build, 600);
   const profiel = str(body.result_profile, 120);
@@ -90,7 +90,7 @@ export default async function handler(req, res) {
 async function resultaatMail(voornaam, email, kansen, advies, build, ticket) {
   const prijs = ticket === 'team' ? '&euro;2.995 excl. btw voor zes personen' : '&euro;595 excl. btw';
   const ctaHref = ticket === 'team' ? 'https://ai-aandeslagdag.nl/#teams' : 'https://ai-aandeslagdag.nl/#tickets';
-  const kansenHtml = kansen.map((k, i) => `<tr><td style="padding:8px 0;vertical-align:top;color:#E5007D;font-weight:700;width:34px">${i + 1}.</td><td style="padding:8px 0"><strong>${esc(k.titel)}</strong><br><span style="color:#3A3A3A">${esc(k.waarom)}</span></td></tr>`).join('');
+  const kansenHtml = kansen.map((k, i) => `<tr><td style="padding:8px 0;vertical-align:top;color:#E5007D;font-weight:700;width:34px">${i + 1}.</td><td style="padding:8px 0"><strong>${esc(k.titel)}</strong><br><span style="color:#3A3A3A">${esc(k.waarom)}</span>${k.tools ? `<br><span style="color:#6E6E6E;font-size:13px">Tools die hierbij kunnen passen: ${esc(k.tools)}</span>` : ''}</td></tr>`).join('');
   const html = `<!DOCTYPE html><html lang="nl"><body style="margin:0;background:#F5F3F0;font-family:Arial,Helvetica,sans-serif;color:#111">
 <div style="max-width:560px;margin:0 auto;padding:28px 20px">
   <p style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#E5007D;font-weight:700;margin:0 0 6px">AI WerkScan</p>

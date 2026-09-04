@@ -10,6 +10,28 @@
 
   var AUD = CFG.audience;
   var SKEY = "werkscan_" + AUD; // sessionStorage-sleutel (alleen antwoorden, geen PII)
+
+  // Tools die bij een oplossingstype kúnnen passen (informatief, geen garantie). Eerst de
+  // oplossing, dan pas de tool. Gekoppeld op opportunity-key, gedeeld over alle doelgroepen.
+  var TOOL_MAP = {
+    research: "Perplexity, ChatGPT, Claude of Gemini",
+    meetingprep: "ChatGPT, Claude of Copilot", meeting: "ChatGPT, Claude of Copilot, en n8n voor de opvolging",
+    followup: "ChatGPT, Claude of Copilot, en n8n om het te automatiseren",
+    proposal: "ChatGPT, Claude of Copilot, of Lovable voor een eigen offertetool",
+    crm: "n8n, AI-agents, ChatGPT of Claude", accountplan: "ChatGPT, Claude of Copilot",
+    qualify: "ChatGPT, Claude of n8n", reporting: "ChatGPT, Claude of Copilot",
+    content: "ChatGPT, Claude, Gemini of Canva", repurposing: "ChatGPT, Claude of Canva",
+    campaign: "ChatGPT, Claude, Gemini of Canva", interview: "ChatGPT, Claude of NotebookLM",
+    audience: "Perplexity, ChatGPT of Claude", briefing: "ChatGPT, Claude of Copilot",
+    actions: "ChatGPT, Claude of n8n", docanalysis: "Claude, ChatGPT, NotebookLM of Copilot",
+    decision: "ChatGPT, Claude of Copilot", projects: "ChatGPT, Claude of n8n",
+    knowledge: "NotebookLM, ChatGPT of Claude", internal: "ChatGPT, Claude of Copilot",
+    sales: "ChatGPT, Claude, Copilot of n8n", marketing: "ChatGPT, Claude, Gemini of Canva",
+    admin: "n8n, AI-agents of ChatGPT", planning: "ChatGPT of Claude", process: "n8n, AI-agents of ChatGPT",
+    exploration: "ChatGPT, Claude, Gemini of Copilot", workflow: "ChatGPT, Claude, n8n of Lovable",
+    automation: "n8n, AI-agents of integraties", adoption: "ChatGPT, Claude of n8n",
+  };
+  function toolsVoor(key) { return TOOL_MAP[key] || "ChatGPT, Claude, Gemini of Copilot"; }
   var state = { i: 0, answers: {}, started: false, submitting: false };
 
   // ---------- helpers ----------
@@ -192,7 +214,7 @@
       voornaam: vn, achternaam: an, email: em, marketing_consent: mk,
       result_profile: kansen[0] ? kansen[0].titel : "",
       opportunities: kansen.map(function (k) { return k.titel; }),
-      kansen: kansen.map(function (k) { return { titel: k.titel, waarom: k.waarom }; }),
+      kansen: kansen.map(function (k) { return { titel: k.titel, waarom: k.waarom, tools: toolsVoor(k.key) }; }),
       start: kansen[0] ? kansen[0].start : "",
       build: kansen[0] ? kansen[0].build : "",
       ticket: CFG.ticket,
@@ -232,6 +254,7 @@
       c.appendChild(el("span", { class: "ws-kans-num" }, String(i + 1).padStart(2, "0")));
       c.appendChild(el("h3", null, esc(k.titel)));
       c.appendChild(el("p", null, esc(k.waarom)));
+      c.appendChild(el("p", { class: "ws-kans-tools" }, "<span>Tools die hierbij kunnen passen</span> " + esc(toolsVoor(k.key))));
       lijst.appendChild(c);
     });
     box.appendChild(lijst);
@@ -245,6 +268,7 @@
     var build = el("div", { class: "ws-block ws-build" });
     build.appendChild(el("p", { class: "ws-build-eyebrow" }, "Dit zou je op 23 november kunnen bouwen"));
     build.appendChild(el("p", { class: "ws-build-tekst" }, esc(top.build)));
+    build.appendChild(el("p", { class: "ws-kans-tools" }, "<span>Tools die hierbij kunnen passen</span> " + esc(toolsVoor(top.key))));
     box.appendChild(build);
 
     // event + CTA

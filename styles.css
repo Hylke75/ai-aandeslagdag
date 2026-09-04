@@ -93,6 +93,26 @@ section{padding:var(--section) 0}
 .post-card-foto img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
 .post-card:hover .post-card-foto img{transform:scale(1.04)}
 .article-foto{display:block;width:100%;height:auto;aspect-ratio:1248/746;object-fit:cover;border-radius:var(--radius);margin-top:2rem}
+
+/* ---------- Toolpositionering ---------- */
+.toolsec h2{font-size:clamp(2rem,5vw,3.25rem);line-height:1.05;letter-spacing:-.02em;font-weight:800;margin-top:.75rem}
+.toolsec-intro{margin-top:1.5rem;max-width:60ch;font-size:1.125rem;line-height:1.6;color:var(--ink-2)}
+.tool-vragen{list-style:none;padding:0;margin:2rem 0 0;display:grid;gap:.75rem}
+@media(min-width:760px){.tool-vragen{grid-template-columns:repeat(3,1fr);gap:1rem}}
+.tool-vragen li{display:flex;align-items:center;gap:.75rem;padding:1rem 1.25rem;background:var(--paper-2);border-radius:var(--radius-btn);font-weight:700;font-size:1.0625rem;line-height:1.2}
+.tool-vragen span{flex:0 0 auto;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--grad);color:#fff;font-size:.875rem;font-weight:800}
+.tool-cats{display:grid;gap:1rem;margin-top:2.5rem;grid-template-columns:1fr}
+@media(min-width:600px){.tool-cats{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:980px){.tool-cats{grid-template-columns:repeat(3,1fr)}}
+.tool-cat{padding:1.5rem;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+.tool-cat h3{font-size:1.1875rem;font-weight:800;letter-spacing:-.01em;line-height:1.15}
+.tool-cat-names{margin:.6rem 0 .8rem;font-size:.875rem;font-weight:700;color:var(--pink);line-height:1.4}
+.tool-cat-tekst{color:var(--ink-2);font-size:.9375rem;line-height:1.5;margin:0}
+.tool-cat-tekst strong{color:var(--ink)}
+.tool-hint{margin-top:1.25rem;color:var(--ink-3);font-size:.875rem;font-style:italic}
+.tool-slot{margin-top:2.5rem;padding:2.5rem;border-radius:var(--radius);background:var(--ink);color:#fff;text-align:center}
+.tool-disclaimer{margin:0;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#8F8F8F}
+.tool-slot-groot{margin:.9rem 0 0;font-size:clamp(1.5rem,3.5vw,2.5rem);line-height:1.1;letter-spacing:-.02em;font-weight:800}
 .post-card-body{display:flex;flex-direction:column;gap:.7rem;padding:1.5rem}
 .post-card-rubriek{align-self:flex-start;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--pink)}
 .post-card-titel{font-size:1.25rem;line-height:1.2;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
@@ -202,6 +222,8 @@ section{padding:var(--section) 0}
 .ws-kans-num{font-size:.8rem;font-weight:800;color:var(--pink);letter-spacing:.08em}
 .ws-kans h3{margin:.3rem 0 .5rem;font-size:1.3125rem;font-weight:800;letter-spacing:-.01em}
 .ws-kans p{color:var(--ink-2);font-size:1rem;line-height:1.55}
+.ws-kans-tools{margin-top:.75rem;font-size:.875rem;color:var(--ink-3);line-height:1.45}
+.ws-kans-tools span{display:block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--pink);margin-bottom:.15rem}
 .ws-block{margin-top:1.5rem;padding:1.5rem 1.75rem;border-radius:var(--radius)}
 .ws-start-advies{background:var(--paper-2)}
 .ws-start-advies h3{font-size:1.1875rem;font-weight:800;margin:0 0 .5rem}

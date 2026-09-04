@@ -38,7 +38,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/styles.css?v=9">
+<link rel="stylesheet" href="/styles.css?v=10">
 </head>
 <body>
 
@@ -361,13 +361,54 @@
   </div>
 </section>
 
-<!-- ===== 12 TOOLS ===== -->
-<section class="dark" aria-labelledby="h-tools">
+<!-- ===== 12 TOOLPOSITIONERING ===== -->
+<section class="toolsec" id="tools" aria-labelledby="h-tools">
   <div class="wrap">
-    <h2 id="h-tools">Je komt niet om tien AI-tools te leren.</h2>
-    <h3 style="margin-top:1rem;color:#D8D8D8">Je komt om je werk slimmer te maken.</h3>
-    <p style="margin-top:1.5rem;color:#B5B5B5">Welke tool je gebruikt, hangt af van je taak en van wat je organisatie toestaat. Je coach werkt met wat jij hebt.</p>
-    <p class="tools-row" aria-label="Voorbeelden van tools waarmee gewerkt wordt"><span>ChatGPT</span><span>Claude</span><span>Microsoft Copilot</span><span>Gemini</span><span>NotebookLM</span><span>Perplexity</span></p>
+    <p class="eyebrow eyebrow--accent">De aanpak</p>
+    <h2 id="h-tools">Niet één AI-tool.<br>Maar de juiste voor jouw werk.</h2>
+    <p class="toolsec-intro">AI is inmiddels veel meer dan een chatbot. Afhankelijk van wat jij wilt verbeteren, past een andere tool beter. Daarom leer je niet één programma uit je hoofd. Je leert bepalen wat je wilt verbeteren, welke aanpak daarbij past en welk gereedschap je daarmee helpt.</p>
+    <ol class="tool-vragen">
+      <li><span aria-hidden="true">1</span>Wat wil ik verbeteren?</li>
+      <li><span aria-hidden="true">2</span>Welke aanpak past daarbij?</li>
+      <li><span aria-hidden="true">3</span>Welke tool helpt me daarmee?</li>
+    </ol>
+    <div class="tool-cats">
+      <article class="tool-cat">
+        <h3>Denken, schrijven &amp; analyseren</h3>
+        <p class="tool-cat-names">ChatGPT · Claude · Gemini · Microsoft Copilot</p>
+        <p class="tool-cat-tekst">Voor schrijven, samenvatten, analyseren, brainstormen, documenten verwerken en werk voorbereiden.</p>
+      </article>
+      <article class="tool-cat">
+        <h3>Research</h3>
+        <p class="tool-cat-names">Perplexity · ChatGPT · Claude · Gemini</p>
+        <p class="tool-cat-tekst">Voor bronnen zoeken, informatie vergelijken, onderwerpen onderzoeken en inzichten structureren.</p>
+      </article>
+      <article class="tool-cat">
+        <h3>Bouwen zonder te programmeren</h3>
+        <p class="tool-cat-names">Lovable</p>
+        <p class="tool-cat-tekst">Voor een prototype, een eenvoudige interne tool, een calculator, een dashboard of een kleine webtoepassing. Wat kan, hangt af van je case.</p>
+      </article>
+      <article class="tool-cat">
+        <h3>Bouwen met code</h3>
+        <p class="tool-cat-names">Claude Code · Cursor</p>
+        <p class="tool-cat-tekst">Voor wie technischer wil bouwen of al met code werkt. <strong>Je hoeft niet te kunnen programmeren om mee te doen.</strong></p>
+      </article>
+      <article class="tool-cat">
+        <h3>Automatiseren</h3>
+        <p class="tool-cat-names">n8n · AI-agents · integraties</p>
+        <p class="tool-cat-tekst">Voor terugkerend werk waarin meerdere stappen of systemen slim met elkaar kunnen samenwerken.</p>
+      </article>
+      <article class="tool-cat">
+        <h3>Beeld &amp; creatie</h3>
+        <p class="tool-cat-names">Canva · Midjourney</p>
+        <p class="tool-cat-tekst">Voor visuals, concepten, presentaties, campagnes en creatieve productie.</p>
+      </article>
+    </div>
+    <p class="tool-hint">Voorbeelden, afhankelijk van je vraag. Niet iedere deelnemer gebruikt iedere tool.</p>
+    <div class="tool-slot">
+      <p class="tool-disclaimer">Tools veranderen. Goed werk blijft.</p>
+      <p class="tool-slot-groot">We beginnen niet bij de tool.<br>We beginnen bij jouw werk.</p>
+    </div>
   </div>
 </section>
 
@@ -904,7 +945,7 @@
     intake: '[aria-labelledby="h-intake"]', voorbeelden: '.examples', resultaat: '[aria-labelledby="h-res"]',
     stappen: '[aria-labelledby="h-stap"]', coach: '#coaches', voorwie: '#voor-wie',
     veiligheid: '[aria-labelledby="h-veilig"]', sprekers: '[aria-labelledby="h-spr"]',
-    tools: '[aria-labelledby="h-tools"]', tickets: '#tickets',
+    tickets: '#tickets',
     werkgever: '.employer', locatie: '[aria-labelledby="h-loc"]', faq: '#faq',
     finale: '.final', lead: '.lead-capture'
   };
