@@ -3,8 +3,15 @@
 const CMS_URL = process.env.CMS_URL || 'https://linkandlead.nl';
 const CSS = '/styles.css?v=11';
 const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const MAAND = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'];
-function datumNL(d) { const m = /^(\d{4})-(\d{2})-(\d{2})[T ](\d{2}):(\d{2})/.exec(String(d || '')); if (!m) return ''; return `${Number(m[3])} ${MAAND[Number(m[2]) - 1]} ${m[1]} om ${m[4]}.${m[5]} uur`; }
+function datumNL(iso) {
+  if (!iso) return '';
+  try {
+    const p = {};
+    new Intl.DateTimeFormat('nl-NL', { timeZone: 'Europe/Amsterdam', day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false })
+      .formatToParts(new Date(iso)).forEach((x) => { p[x.type] = x.value; });
+    return `${p.day} ${p.month} ${p.year} om ${p.hour}.${p.minute} uur`;
+  } catch (e) { return ''; }
+}
 const STATUS = { gereserveerd: 'Gereserveerd (betaling in behandeling)', bevestigd: 'Bevestigd', betaald: 'Betaald', geannuleerd: 'Geannuleerd', verlopen: 'Verlopen' };
 
 function pagina(inner) {
@@ -59,8 +66,8 @@ export default async function handler(req, res) {
     `</div>` +
     `<p class="beheer-hulp">Vragen? Mail <a href="mailto:contact@ai-aandeslagdag.nl">contact@ai-aandeslagdag.nl</a>.</p>` +
     `<script>(function(){var tok=${JSON.stringify(String(token))};var k=document.getElementById('annuleer-knop'),b=document.getElementById('annuleer-bevestig');
-if(k){k.addEventListener('click',function(){k.hidden=true;b.hidden=false;});}
-var nee=document.getElementById('annuleer-nee');if(nee){nee.addEventListener('click',function(){b.hidden=true;k.hidden=false;});}
+if(k){k.addEventListener('click',function(){k.style.display='none';b.hidden=false;});}
+var nee=document.getElementById('annuleer-nee');if(nee){nee.addEventListener('click',function(){b.hidden=true;k.style.display='';});}
 var ja=document.getElementById('annuleer-ja');if(ja){ja.addEventListener('click',function(){ja.disabled=true;ja.textContent='Bezig…';
 fetch('/api/annuleren',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({token:tok})}).then(function(r){return r.json();}).then(function(u){
 if(u&&u.ok){document.getElementById('beheer-actie').innerHTML='<p class="beheer-geannuleerd">Je inschrijving is geannuleerd. Je ontvangt hiervan geen aparte mail.</p>';var s=document.getElementById('beheer-status');if(s)s.textContent='Geannuleerd';}
