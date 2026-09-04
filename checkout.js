@@ -135,6 +135,8 @@
     var b = e.target.closest('[data-event="checkout_start"]');
     if (!b) return;
     e.preventDefault();
-    open(b.getAttribute("data-ticket") === "teamtafel" ? "teamtafel" : "individueel");
+    // data-ticket kan de key ("teamtafel") of de CMS-naam ("Teamtafel") zijn.
+    var dt = (b.getAttribute("data-ticket") || "").toLowerCase();
+    open(dt.indexOf("team") >= 0 ? "teamtafel" : "individueel");
   });
 })();
