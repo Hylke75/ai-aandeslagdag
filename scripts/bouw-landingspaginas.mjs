@@ -10,7 +10,7 @@ import { CONFIGS, SLUGS } from './werkscan-configs.mjs'
 
 const DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const BASE = 'https://ai-aandeslagdag.nl'
-const CSS = '/styles.css?v=10'
+const CSS = '/styles.css?v=11'
 const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]))
 
 const PROG = [

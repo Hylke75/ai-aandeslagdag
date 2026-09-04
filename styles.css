@@ -113,6 +113,41 @@ section{padding:var(--section) 0}
 .tool-slot{margin-top:2.5rem;padding:2.5rem;border-radius:var(--radius);background:var(--ink);color:#fff;text-align:center}
 .tool-disclaimer{margin:0;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#8F8F8F}
 .tool-slot-groot{margin:.9rem 0 0;font-size:clamp(1.5rem,3.5vw,2.5rem);line-height:1.1;letter-spacing:-.02em;font-weight:800}
+
+/* ---------- Checkout-modal ---------- */
+.co-overlay{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.55);display:flex;align-items:flex-start;justify-content:center;padding:clamp(1rem,4vw,3rem) 1rem;overflow-y:auto;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.co-modal{position:relative;width:100%;max-width:560px;background:#fff;border-radius:var(--radius);padding:clamp(1.5rem,4vw,2.5rem);box-shadow:0 30px 80px rgba(0,0,0,.3)}
+.co-sluit{position:absolute;top:1rem;right:1rem;width:40px;height:40px;border:0;background:var(--paper-2);border-radius:50%;font-size:1.5rem;line-height:1;cursor:pointer;color:var(--ink-2)}
+.co-sluit:hover{background:var(--line)}
+.co-eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--pink);margin:0 0 .4rem}
+.co-modal h2{font-size:clamp(1.5rem,3.5vw,2rem);line-height:1.1;letter-spacing:-.02em;font-weight:800;margin:0}
+.co-prijs{margin:.5rem 0 1.5rem;color:var(--ink-2);font-size:.9375rem}
+.co-form{display:grid;gap:1rem}
+.co-rij{display:grid;gap:1rem;grid-template-columns:1fr}
+@media(min-width:520px){.co-rij{grid-template-columns:1fr 1fr}}
+.co-veld{display:grid;gap:.35rem}
+.co-veld label{font-weight:700;font-size:.875rem}
+.co-opt{font-weight:400;color:var(--ink-3)}
+.co-veld input{font:inherit;font-size:1.0625rem;padding:.8rem .95rem;border:1.5px solid var(--line);border-radius:var(--radius-btn);background:#fff;min-height:50px}
+.co-veld input:focus-visible{outline:2px solid var(--pink);outline-offset:1px;border-color:var(--pink)}
+.co-team,.co-betaal{border:1px solid var(--line);border-radius:var(--radius-btn);padding:1rem 1.1rem;margin:0;display:grid;gap:.6rem}
+.co-team legend,.co-betaal legend{font-weight:700;font-size:.9375rem;padding:0 .4rem}
+.co-team input{font:inherit;padding:.6rem .8rem;border:1.5px solid var(--line);border-radius:10px;min-height:44px}
+.co-radio{display:flex;gap:.7rem;align-items:flex-start;font-size:.9375rem;line-height:1.4;cursor:pointer}
+.co-radio input{margin-top:.2rem;width:20px;height:20px;flex:0 0 20px;accent-color:var(--pink)}
+.co-check{display:flex;gap:.7rem;align-items:flex-start;font-size:.875rem;color:var(--ink-2);line-height:1.45;cursor:pointer}
+.co-check input{margin-top:.15rem;width:19px;height:19px;flex:0 0 19px;accent-color:var(--pink)}
+.co-check a{color:var(--ink)}
+.co-submit{margin-top:.4rem;width:100%}
+.co-fout{margin:0;color:#b00020;font-weight:600;font-size:.9375rem}
+.co-privacy{margin:0;color:var(--ink-3);font-size:.8125rem;line-height:1.5}
+.co-privacy a{color:var(--ink-2)}
+.co-klaar{text-align:center;padding:1rem 0}
+.co-klaar svg{width:56px;height:56px;color:var(--pink);margin-bottom:1rem}
+.co-klaar h2{margin-bottom:.6rem}
+.co-klaar p{color:var(--ink-2);line-height:1.55;margin:0 0 .6rem}
+.co-klaar-sub{font-size:.875rem;color:var(--ink-3)}
+.co-klaar .btn{margin-top:1rem}
 .post-card-body{display:flex;flex-direction:column;gap:.7rem;padding:1.5rem}
 .post-card-rubriek{align-self:flex-start;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--pink)}
 .post-card-titel{font-size:1.25rem;line-height:1.2;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
