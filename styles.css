@@ -118,6 +118,7 @@ section{padding:var(--section) 0}
 .nav{display:none;gap:1.75rem;align-items:center}
 .nav a{text-decoration:none;font-weight:500;font-size:.9375rem;color:var(--ink-2)}
 .nav a:hover{color:var(--ink)}
+.nav a.btn-primary,.nav a.btn-primary:hover{color:#fff}
 .nav .btn{min-height:44px;padding:.55rem 1.1rem;font-size:.875rem}
 @media(min-width:1024px){.nav{display:flex}}
 .burger{width:44px;height:44px;border:0;background:none;display:grid;place-items:center;border-radius:8px}
