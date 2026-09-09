@@ -23,10 +23,28 @@ export default async function handler(req, res) {
   const naam = str(body.naam, 120), email = str(body.email, 160);
   if (!naam || !EMAIL_RE.test(email)) { res.status(400).json({ ok: false, melding: 'Vul je naam en een geldig e-mailadres in.' }); return; }
 
-  const deelnemers = Array.isArray(body.deelnemers)
-    ? body.deelnemers.map((d) => ({ naam: str(d && d.naam, 120), functie: str(d && d.functie, 120) })).filter((d) => d.naam)
-    : [];
-  if (deelnemers.length === 0) deelnemers.push({ naam });
+  // Teamtafel = flat unit (één tafel voor 6 personen, max 1 per inschrijving). De ingevulde teamnamen
+  // mogen NIET als losse deelnemers meegaan: de RPC telt het aantal deelnemers als hoeveelheid, dus
+  // meerdere namen zouden > max 1 worden ("aantal_ongeldig"). Stuur daarom 1 eenheid en leg de namen
+  // vast in de opmerking op de order/factuur. Individueel: gewoon 1 deelnemer.
+  let opmerking = str(body.opmerking, 500);
+  let deelnemers;
+  if (ticketKey === 'teamtafel') {
+    const namen = Array.isArray(body.deelnemers)
+      ? body.deelnemers.map((d) => str(d && d.naam, 120)).filter(Boolean)
+      : [];
+    const bedrijf = str(body.bedrijf, 160);
+    deelnemers = [{ naam: bedrijf ? 'Team ' + bedrijf : naam }];
+    if (namen.length) {
+      const teamregel = 'Teamleden: ' + namen.join(', ');
+      opmerking = (opmerking ? opmerking + ' — ' + teamregel : teamregel).slice(0, 500);
+    }
+  } else {
+    deelnemers = Array.isArray(body.deelnemers)
+      ? body.deelnemers.map((d) => ({ naam: str(d && d.naam, 120), functie: str(d && d.functie, 120) })).filter((d) => d.naam)
+      : [];
+    if (deelnemers.length === 0) deelnemers.push({ naam });
+  }
 
   const payload = {
     site_id: SITE_ID,
@@ -44,7 +62,7 @@ export default async function handler(req, res) {
       factuur_plaats: str(body.factuur_plaats, 80),
       factuur_land: str(body.factuur_land, 2) || 'NL',
       btw_nummer: str(body.btw_nummer, 20),
-      opmerking: str(body.opmerking, 500),
+      opmerking,
       bron_pagina: str(body.bron_pagina, 200),
     },
     optin: !!body.optin,
