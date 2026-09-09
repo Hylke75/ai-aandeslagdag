@@ -1,7 +1,7 @@
 // "Mijn inschrijving"-hub op het eigen domein (SSR). Toont de inschrijving in de huisstijl +
-// voorbereidingsacties (agenda, WerkScan, programma) + annuleren (inline bevestiging, geen native pop-up).
+// voorbereidingsacties (agenda, WerkScan, programma). Annuleren gaat niet zelf; dat kan via e-mail.
 const CMS_URL = process.env.CMS_URL || 'https://linkandlead.nl';
-const CSS = '/styles.css?v=12';
+const CSS = '/styles.css?v=16';
 const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 function datumNL(iso) {
@@ -88,27 +88,16 @@ export default async function handler(req, res) {
       `<h2>Zo bereid je je voor</h2>` +
       `<ul class="beheer-checks">` +
         `<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span><strong>Neem je laptop mee</strong> en kies alvast één terugkerende taak die je week telkens tijd kost. Daar ga je die dag mee aan de slag.</span></li>` +
+        `<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span><strong>Zorg dat je kunt inloggen bij een AI-tool</strong> — ChatGPT, Gemini, Claude of Copilot — en dat je op je laptop een proefabonnement kunt afsluiten. Zo kun je die dag meteen aan de slag met de betaalde functies.</span></li>` +
         `<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span><strong>Doe de gratis AI WerkScan</strong> om te ontdekken waar bij jou de grootste AI-kans zit. <a href="/ai-voor-ondernemers#werkscan-sectie">Start de WerkScan &rarr;</a></span></li>` +
         `<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span><strong>Bekijk het programma</strong> zodat je weet hoe de dag eruitziet. <a href="/programma">Naar het programma &rarr;</a></span></li>` +
         `<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span><strong>Lees ter inspiratie de blog</strong> over slimmer werken met AI. <a href="/blog">Naar de blog &rarr;</a></span></li>` +
       `</ul>` +
     `</div>`) +
 
-    `<div id="beheer-actie" class="beheer-annuleer">` +
-      (geannuleerd
-        ? `<p class="beheer-geannuleerd">Deze inschrijving is geannuleerd.</p>`
-        : `<button type="button" class="beheer-annuleer-link" id="annuleer-knop">Inschrijving annuleren</button>` +
-          `<div id="annuleer-bevestig" hidden><p class="beheer-vraag">Weet je zeker dat je je inschrijving wilt annuleren? Dit geeft je plek vrij.</p>` +
-          `<div class="cta-row"><button type="button" class="btn btn-primary" id="annuleer-ja">Ja, annuleren</button><button type="button" class="btn btn-outline" id="annuleer-nee">Nee, terug</button></div></div>`) +
-    `</div>` +
-    `<p class="beheer-hulp">Vragen of iets wijzigen? Mail <a href="mailto:contact@ai-aandeslagdag.nl">contact@ai-aandeslagdag.nl</a>.</p>` +
-    `<script>(function(){var tok=${JSON.stringify(String(token))};var k=document.getElementById('annuleer-knop'),b=document.getElementById('annuleer-bevestig');
-if(k){k.addEventListener('click',function(){k.style.display='none';b.hidden=false;b.scrollIntoView({behavior:'smooth',block:'center'});});}
-var nee=document.getElementById('annuleer-nee');if(nee){nee.addEventListener('click',function(){b.hidden=true;k.style.display='';});}
-var ja=document.getElementById('annuleer-ja');if(ja){ja.addEventListener('click',function(){ja.disabled=true;ja.textContent='Bezig…';
-fetch('/api/annuleren',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({token:tok})}).then(function(r){return r.json();}).then(function(u){
-if(u&&u.ok){document.getElementById('beheer-actie').innerHTML='<p class="beheer-geannuleerd">Je inschrijving is geannuleerd en je plek is vrijgegeven.</p>';var s=document.getElementById('beheer-status');if(s)s.textContent='Geannuleerd';}
-else{ja.disabled=false;ja.textContent='Ja, annuleren';alert('Annuleren lukte niet. Mail contact@ai-aandeslagdag.nl.');}}).catch(function(){ja.disabled=false;ja.textContent='Ja, annuleren';alert('Er ging iets mis. Probeer het opnieuw of mail contact@ai-aandeslagdag.nl.');});});}
-})();</script>`;
+    (geannuleerd
+      ? `<div class="beheer-annuleer"><p class="beheer-geannuleerd">Deze inschrijving is geannuleerd.</p></div>`
+      : '') +
+    `<p class="beheer-hulp">Vragen, iets wijzigen of toch annuleren? Mail <a href="mailto:contact@ai-aandeslagdag.nl">contact@ai-aandeslagdag.nl</a> en we regelen het voor je.</p>`;
   res.status(200).send(pagina(kaart));
 }

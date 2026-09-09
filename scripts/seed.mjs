@@ -180,7 +180,7 @@ const blokken = [
     _sectie: 'werkgever',
     titel: 'Wil je komen, maar moet je werkgever akkoord geven?',
     tekst: 'Wij schrijven de mail voor je: wat je meeneemt, wat het kost en wat je organisatie ermee terugkrijgt.',
-    knoptekst: 'Help mij mijn manager overtuigen', knop: '#',
+    knoptekst: 'Help mij mijn manager overtuigen', knop: '/voor-je-werkgever',
   } },
   { type: 'feiten', content: {
     _sectie: 'locatie',
@@ -216,7 +216,7 @@ const blokken = [
     _sectie: 'lead',
     titel: 'Nog niet klaar om te boeken?',
     tekst: 'De gratis AI Werkbespaarder: beantwoord drie vragen over je werk en ontvang een korte analyse van je AI-kansen.',
-    knoptekst: 'Ontdek mijn AI-kansen', knop: '#',
+    knoptekst: 'Ontdek mijn AI-kansen', knop: '/ai-voor-ondernemers#werkscan-sectie',
   } },
 ]
 

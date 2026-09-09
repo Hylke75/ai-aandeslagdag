@@ -1,6 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/admin", "destination": "https://linkandlead.nl/admin", "permanent": false },
+    { "source": "/admin/:path*", "destination": "https://linkandlead.nl/admin/:path*", "permanent": false }
+  ],
   "rewrites": [
     { "source": "/blog", "destination": "/api/blog-index" },
     { "source": "/blog/", "destination": "/api/blog-index" },

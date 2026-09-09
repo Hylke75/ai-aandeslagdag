@@ -244,22 +244,20 @@
     root.innerHTML = "";
     var box = el("div", { class: "ws-result" });
     box.appendChild(el("p", { class: "ws-eyebrow" }, "Je AI WerkScan-uitslag"));
-    box.appendChild(el("h2", { class: "ws-result-h" }, esc(voornaam) + ", dit zijn jouw grootste AI-kansen."));
+    box.appendChild(el("h2", { class: "ws-result-h" }, esc(voornaam) + ", dit is jouw beste startpunt."));
     if (CFG.nuance) box.appendChild(el("p", { class: "ws-nuance" }, esc(CFG.nuance)));
     if (CFG.groot) box.appendChild(el("p", { class: "ws-groot" }, esc(CFG.groot)));
 
-    var lijst = el("div", { class: "ws-kansen" });
-    kansen.forEach(function (k, i) {
-      var c = el("div", { class: "ws-kans" });
-      c.appendChild(el("span", { class: "ws-kans-num" }, String(i + 1).padStart(2, "0")));
-      c.appendChild(el("h3", null, esc(k.titel)));
-      c.appendChild(el("p", null, esc(k.waarom)));
-      c.appendChild(el("p", { class: "ws-kans-tools" }, "<span>Tools die hierbij kunnen passen</span> " + esc(toolsVoor(k.key))));
-      lijst.appendChild(c);
-    });
-    box.appendChild(lijst);
-
     var top = kansen[0];
+
+    // Solution-first (opdracht §16): eerst het TYPE OPLOSSING, dan pas de tools.
+    var sp = el("div", { class: "ws-startpunt" });
+    sp.appendChild(el("p", { class: "ws-startpunt-eyebrow" }, "Jouw beste startpunt"));
+    sp.appendChild(el("p", { class: "ws-startpunt-type" }, esc(top.titel)));
+    sp.appendChild(el("p", { class: "ws-startpunt-waarom" }, esc(top.waarom)));
+    sp.appendChild(el("p", { class: "ws-kans-tools" }, "<span>Tools die hierbij bijvoorbeeld kunnen passen</span> " + esc(toolsVoor(top.key))));
+    box.appendChild(sp);
+
     var start = el("div", { class: "ws-block ws-start-advies" });
     start.appendChild(el("h3", null, "Hier zou ik beginnen."));
     start.appendChild(el("p", null, esc(top.start)));
@@ -268,8 +266,22 @@
     var build = el("div", { class: "ws-block ws-build" });
     build.appendChild(el("p", { class: "ws-build-eyebrow" }, "Dit zou je op 23 november kunnen bouwen"));
     build.appendChild(el("p", { class: "ws-build-tekst" }, esc(top.build)));
-    build.appendChild(el("p", { class: "ws-kans-tools" }, "<span>Tools die hierbij kunnen passen</span> " + esc(toolsVoor(top.key))));
     box.appendChild(build);
+
+    // De overige oplossingsrichtingen (ook solution-first: type eerst, tool als voorbeeld).
+    if (kansen.length > 1) {
+      box.appendChild(el("p", { class: "ws-ook-h" }, "Ook kansrijk voor jou"));
+      var lijst = el("div", { class: "ws-kansen" });
+      kansen.slice(1).forEach(function (k, i) {
+        var c = el("div", { class: "ws-kans" });
+        c.appendChild(el("span", { class: "ws-kans-num" }, String(i + 2).padStart(2, "0")));
+        c.appendChild(el("h3", null, esc(k.titel)));
+        c.appendChild(el("p", null, esc(k.waarom)));
+        c.appendChild(el("p", { class: "ws-kans-tools" }, "<span>Tools die hierbij bijvoorbeeld kunnen passen</span> " + esc(toolsVoor(k.key))));
+        lijst.appendChild(c);
+      });
+      box.appendChild(lijst);
+    }
 
     // event + CTA
     var isTeam = CFG.ticket === "team";
@@ -288,4 +300,10 @@
   // ---------- init ----------
   loadAnswers();
   renderStart();
+  // Binnenkomst via #werkscan-sectie (bv. de home-CTA "Ontdek mijn AI-kansen"): de browser springt
+  // te vroeg, vóór deze render, en blijft daardoor bovenaan de hero hangen. Corrigeer na de render.
+  if (/werkscan/.test(location.hash)) {
+    var doel = document.getElementById("werkscan-sectie") || root;
+    setTimeout(function () { doel.scrollIntoView({ behavior: "smooth", block: "start" }); }, 80);
+  }
 })();
