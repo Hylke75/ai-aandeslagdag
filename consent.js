@@ -1,4 +1,4 @@
-// Cookie-/meetvoorkeuren voor AI Aan De Slag Dag — drie keuzes:
+// Cookie-/meetvoorkeuren voor AI Aan De Slag — drie keuzes:
 //   • Weigeren            → geen enkele meting.
 //   • Alleen noodzakelijk → alleen cookieloze, anonieme bezoekmeting (Vercel Web Analytics). Geen cookies, geen GA.
 //   • Alles accepteren    → cookieloze meting + Google Analytics (gtag.js, met cookies).

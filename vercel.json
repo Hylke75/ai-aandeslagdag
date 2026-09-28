@@ -11,13 +11,11 @@
     { "source": "/ai-voor-marketing", "destination": "/", "permanent": false },
     { "source": "/ai-voor-managers", "destination": "/", "permanent": false },
     { "source": "/ai-voor-ondernemers", "destination": "/", "permanent": false },
-    { "source": "/ai-voor-teams", "destination": "/", "permanent": false }
-  ],
-  "rewrites": [
-    { "source": "/blog", "destination": "/api/blog-index" },
-    { "source": "/blog/", "destination": "/api/blog-index" },
-    { "source": "/blog/:slug", "destination": "/api/blog-post?slug=:slug" },
-    { "source": "/inschrijving/:token", "destination": "/api/inschrijving?token=:token" }
+    { "source": "/ai-voor-teams", "destination": "/", "permanent": false },
+    { "source": "/blog", "destination": "/", "permanent": false },
+    { "source": "/blog/:slug*", "destination": "/", "permanent": false },
+    { "source": "/inschrijving/:token*", "destination": "/", "permanent": false },
+    { "source": "/tickets", "destination": "/#prijs", "permanent": false }
   ],
   "headers": [
     {
