@@ -768,3 +768,125 @@ footer h3{font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;color
 .reassurance li{display:flex;align-items:center;gap:.6rem;font-size:.9375rem;font-weight:500;color:var(--ink-2)}
 .reassurance svg{width:20px;height:20px;color:var(--pink);flex:0 0 20px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ================================================================
+   TEAMS-PROGRAMMA (herbouw 2026) — nieuwe componenten
+   ================================================================ */
+
+/* Hero-feiten (prijs + omvang direct zichtbaar) */
+.hero-facts{display:flex;flex-wrap:wrap;gap:.75rem;margin:0 0 1.75rem}
+.hero-fact{display:inline-flex;align-items:baseline;gap:.4rem;padding:.6rem 1.05rem;border-radius:999px;background:var(--paper-2);font-size:1rem;color:var(--ink-2)}
+.hero-fact b{color:var(--ink);font-weight:800}
+.hero-fact--price{background:var(--ink);color:#fff}
+.hero-fact--price b{color:#fff}
+
+/* Herkenbaar probleem (dark statement + 3 kaarten) */
+.probleem-card p{font-size:1.0625rem;line-height:1.5;color:#D8D8D8;max-width:none;font-weight:500}
+.dark .rule{margin-top:1.25rem;color:#8F8F8F;font-weight:500}
+
+/* Programma in 3 stappen — grote genummerde stappen */
+.stappen-groot{list-style:none;padding:0;display:grid;gap:1rem;counter-reset:stap}
+.stap-groot{display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start;padding:clamp(1.5rem,3vw,2.25rem);border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+@media(max-width:600px){.stap-groot{grid-template-columns:1fr;gap:1rem}}
+.stap-n{width:56px;height:56px;flex:0 0 56px;border-radius:50%;display:grid;place-items:center;background:var(--grad);color:#fff;font-size:1.5rem;font-weight:800;line-height:1}
+.stap-body h3{text-transform:none;font-size:clamp(1.375rem,2.6vw,1.875rem);letter-spacing:-.015em}
+.stap-body p{margin-top:.6rem;color:var(--ink-2)}
+.stap-vragen{margin:1rem 0 0;padding:0;list-style:none;display:grid;gap:.5rem}
+@media(min-width:640px){.stap-vragen{grid-template-columns:1fr 1fr;gap:.5rem 1.5rem}}
+.stap-vragen li{position:relative;padding-left:1.4rem;color:var(--ink-2);font-size:.9375rem;line-height:1.4}
+.stap-vragen li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--grad)}
+.stap-punch{margin-top:1rem;font-weight:800;font-size:clamp(1.125rem,2vw,1.375rem);letter-spacing:-.01em;color:var(--ink);max-width:34ch}
+
+/* Wat kun je maken — chips */
+.maak-grid{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.6rem}
+.maak-grid li{padding:.7rem 1.1rem;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:600;font-size:.9375rem;color:var(--ink)}
+.maak-noot{margin-top:1.5rem;color:var(--ink-3);font-size:.9375rem;font-style:italic;max-width:64ch}
+
+/* 20 intakes → AI Kansenkaart */
+.kaart-grid{display:grid;gap:2.5rem}
+@media(min-width:980px){.kaart-grid{grid-template-columns:6fr 5fr;gap:clamp(3rem,5vw,5rem);align-items:center}}
+.kaart-box{border:2px solid transparent;border-radius:var(--radius);background:linear-gradient(#fff,#fff) padding-box,var(--grad) border-box;padding:clamp(1.75rem,3.5vw,2.5rem)}
+.kaart-eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--pink);margin-bottom:.5rem}
+.kaart-box h3{text-transform:none;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.02em}
+.kaart-tekst{margin-top:.75rem;color:var(--ink-2);font-size:1rem}
+.kaart-lijst{margin:1.25rem 0 0;padding:0;list-style:none;display:grid;gap:.55rem}
+.kaart-lijst li{position:relative;padding-left:1.4rem;font-weight:600;color:var(--ink)}
+.kaart-lijst li::before{content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:2px;background:var(--grad)}
+
+/* Programma van de dag — timeline op donker */
+.dark .timeline::before{background:#2C2C2C}
+.dark .timeline li::before{background:var(--ink);border-color:#4A4A4A}
+.dark .timeline li.hi::before{background:var(--grad);border-color:transparent}
+.timeline .t{display:block}
+.timeline .h{display:block;color:inherit}
+.dark .timeline .t{color:#9A9A9A}
+.dag-noot{margin-top:2.5rem;font-size:clamp(1.5rem,3.4vw,2.5rem);font-weight:800;letter-spacing:-.02em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Veilig gebruik — lijst */
+.veilig-list{list-style:none;padding:0;display:grid;gap:.75rem}
+@media(min-width:640px){.veilig-list{grid-template-columns:1fr 1fr;gap:.75rem 1.5rem}}
+.veilig-list li{position:relative;padding-left:1.6rem;color:var(--ink-2);font-size:1rem;line-height:1.45}
+.veilig-list li::before{content:"";position:absolute;left:0;top:.45em;width:9px;height:9px;border-radius:50%;background:var(--grad)}
+
+/* Resultaat — 4 blokken */
+.result-card h3{text-transform:none;font-size:1.25rem;letter-spacing:-.01em;line-height:1.15}
+.result-card p{margin-top:.6rem;color:var(--ink-2);font-size:1rem;max-width:none}
+
+/* Prijs — één blok */
+.prijs-wrap{display:grid;gap:2.5rem}
+@media(min-width:980px){.prijs-wrap{grid-template-columns:5fr 7fr;gap:clamp(3rem,5vw,5rem);align-items:center}}
+.prijs-kop h2{max-width:14ch}
+.prijs-card{border:2px solid transparent;border-radius:var(--radius);background:linear-gradient(#161616,#161616) padding-box,var(--grad) border-box;padding:clamp(1.75rem,4vw,2.75rem);color:#fff}
+.prijs-groot{font-size:clamp(3.5rem,9vw,5.5rem);font-weight:800;letter-spacing:-.04em;line-height:.9;color:#fff}
+.prijs-groot small{display:inline-block;font-size:.9375rem;font-weight:600;letter-spacing:.02em;color:#A8A8A8;margin-left:.6rem;vertical-align:middle;text-transform:none}
+.prijs-sub{margin-top:.5rem;font-weight:700;font-size:1.0625rem;color:#fff}
+.prijs-incl{list-style:none;padding:0;margin:1.75rem 0;display:grid;gap:.7rem}
+@media(min-width:640px){.prijs-incl{grid-template-columns:1fr 1fr;gap:.7rem 1.5rem}}
+.prijs-incl li{display:flex;gap:.7rem;align-items:flex-start;font-size:.9375rem;line-height:1.4;color:#E5E5E5}
+.prijs-incl svg{flex:0 0 20px;width:20px;height:20px;color:var(--pink);margin-top:.1rem}
+.prijs-card .btn{margin-top:.5rem}
+.prijs-fijn{margin-top:1rem;font-size:.875rem;color:#A8A8A8}
+
+/* Locatie — twee opties */
+.loc-grid{display:grid;gap:1.25rem}
+@media(min-width:820px){.loc-grid{grid-template-columns:1fr 1fr;align-items:stretch}}
+.loc-card{border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:clamp(1.75rem,3.5vw,2.5rem);display:flex;flex-direction:column;gap:.75rem}
+.loc-card h3{text-transform:none;font-size:1.5rem;letter-spacing:-.015em}
+.loc-card p{color:var(--ink-2);max-width:none}
+.loc-card--foto{padding:0;overflow:hidden}
+.loc-foto{aspect-ratio:16/10;overflow:hidden;background:var(--paper-2)}
+.loc-foto img{width:100%;height:100%;object-fit:cover}
+.loc-foto-body{padding:clamp(1.5rem,3vw,2rem);display:flex;flex-direction:column;gap:.6rem}
+
+/* Voor wie — kopersblok */
+.wie-kopers{align-self:start}
+.wie-kopers-eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--pink);margin-bottom:.6rem}
+.wie-kopers p{color:var(--ink-2);max-width:none}
+
+/* Coaches-noot */
+.coach-noot{margin-top:2rem;color:#A8A8A8;font-size:.9375rem;font-style:italic}
+
+/* Kennismaking — formulier */
+.ken-grid{display:grid;gap:2.5rem}
+@media(min-width:980px){.ken-grid{grid-template-columns:5fr 6fr;gap:clamp(3rem,5vw,5rem);align-items:start}}
+.ken-intro p{margin-top:1rem;color:var(--ink-2)}
+.ken-punten{list-style:none;padding:0;margin:1.5rem 0 0;display:grid;gap:.75rem}
+.ken-punten li{display:flex;gap:.75rem;align-items:flex-start;font-weight:600;font-size:1rem}
+.ken-punten svg{flex:0 0 22px;width:22px;height:22px;color:var(--pink);margin-top:.1rem}
+.ken-form{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:clamp(1.5rem,3.5vw,2.5rem);display:grid;gap:1.1rem}
+.ken-veld{display:grid;gap:.4rem}
+.ken-veld label{font-weight:700;font-size:.9375rem;color:var(--ink)}
+.ken-optioneel{font-weight:500;color:var(--ink-3)}
+.ken-veld input,.ken-veld textarea{font:inherit;font-size:1rem;padding:.8rem .95rem;border:1.5px solid var(--line);border-radius:var(--radius-btn);background:var(--paper-2);color:var(--ink);width:100%;transition:border-color .18s,background .18s}
+.ken-veld input:focus,.ken-veld textarea:focus{outline:none;border-color:var(--pink);background:#fff}
+.ken-veld textarea{resize:vertical;min-height:110px}
+.ken-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.ken-actie{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-top:.25rem}
+.ken-actie .btn{flex:0 0 auto}
+.ken-status{margin:0;font-size:.9375rem;font-weight:600;color:var(--ink-2)}
+.ken-status.is-fout{color:var(--pink)}
+.ken-privacy{margin:0;font-size:.8125rem;color:var(--ink-3)}
+.ken-privacy a{color:var(--pink);font-weight:600}
+.ken-klaar{text-align:center;padding:1.5rem 0}
+.ken-klaar h3{text-transform:none;font-size:1.5rem;letter-spacing:-.015em}
+.ken-klaar p{margin:.75rem auto 0;color:var(--ink-2)}

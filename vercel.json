@@ -3,7 +3,15 @@
   "cleanUrls": true,
   "redirects": [
     { "source": "/admin", "destination": "https://linkandlead.nl/admin", "permanent": false },
-    { "source": "/admin/:path*", "destination": "https://linkandlead.nl/admin/:path*", "permanent": false }
+    { "source": "/admin/:path*", "destination": "https://linkandlead.nl/admin/:path*", "permanent": false },
+    { "source": "/programma", "destination": "/#programma", "permanent": false },
+    { "source": "/voor-wie-niet", "destination": "/", "permanent": false },
+    { "source": "/voor-je-werkgever", "destination": "/", "permanent": false },
+    { "source": "/ai-voor-sales", "destination": "/", "permanent": false },
+    { "source": "/ai-voor-marketing", "destination": "/", "permanent": false },
+    { "source": "/ai-voor-managers", "destination": "/", "permanent": false },
+    { "source": "/ai-voor-ondernemers", "destination": "/", "permanent": false },
+    { "source": "/ai-voor-teams", "destination": "/", "permanent": false }
   ],
   "rewrites": [
     { "source": "/blog", "destination": "/api/blog-index" },

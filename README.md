@@ -1,47 +1,51 @@
-# AI Aan De Slag Dag — frontend
+# AI Aan De Slag — frontend
 
-De publieke landingspagina voor **AI Aan De Slag Dag** (maandag 23 november 2026, Grote Kerk
-Den Haag). Een **losse frontend** met het **exacte aangeleverde ontwerp**, die z'n content
-optioneel **live uit het centrale CMS** (`linkandlead.nl`) haalt. Gebouwd volgens
-`BOUW-EEN-SITE.md`.
+De publieke website voor **AI Aan De Slag voor Teams**: een praktisch AI-programma voor
+maximaal 20 medewerkers per organisatie (€3.995 excl. btw). Van persoonlijke AI-intake tot
+een praktische trainingsdag en een AI Impact Sessie na 4–6 weken. Bij de klant op locatie of
+in de Grote Kerk in Den Haag.
+
+De site is een **statische frontend** (HTML/CSS + een paar serverless endpoints) die leadverkeer
+naar het centrale CMS (`linkandlead.nl`) stuurt.
 
 ## Structuur
 
 ```
-index.html        Het exacte ontwerp (statische one-pager, alles inline).
-api/content.js     Server-side CMS-endpoint (leest /api/cms/content met het token).
-vercel.json        Beveiligingsheaders.
-.env.example       CMS_URL + CMS_TOKEN (nooit committen).
+index.html          Homepage — verkoopt het volledige teamprogramma. Primaire CTA: "Plan een kennismaking".
+privacy.html        Privacyverklaring (programma-context).
+voorwaarden.html    Algemene voorwaarden (programma-boeking).
+404.html            Nette foutpagina.
+styles.css          Design system + alle componenten (?v=… cache-bump bij CSS-wijziging).
+api/kennismaking.js Same-origin lead-proxy: valideert + anti-spam → POST /api/cms/lead (site-gescoopt).
+lib/blog-render.js  Server-side render van de blog (live uit het CMS). Blog: evergreen AI-content.
+api/blog-index.js   /blog overzicht.  api/blog-post.js  /blog/:slug.
+vercel.json         Redirects (oude eventpagina's → /), rewrites (/blog), beveiligingsheaders + CSP.
+.env.example        CMS_URL + optionele keys.
 ```
 
-## Hoe de CMS-koppeling werkt
+## Conversie-flow
 
-- De pagina toont **standaard exact het ontwerp** — alle teksten staan hardcoded in `index.html`.
-- Onderaan `index.html` staat een kleine **hydratie-stap** die `/api/content` ophaalt.
-- `api/content.js` leest het centrale CMS **alleen** als `CMS_URL` + `CMS_TOKEN` gezet zijn.
-  Zonder token antwoordt het `{ok:false}` en verandert er niets aan de pagina.
-- Elke override is **non-destructief**: een leeg of ontbrekend CMS-veld laat de bestaande
-  tekst staan. De site kan dus nooit "breken" op een CMS-hik.
+De enige primaire CTA is **"Plan een kennismaking"** (`#kennismaking`). Het formulier post
+same-origin naar `api/kennismaking.js`, dat de aanvraag (naam, organisatie, e-mail, telefoon,
+aantal deelnemers, toelichting) doorstuurt naar het centrale lead-endpoint. Er is **geen** online
+afrekenen; facturatie gebeurt na de kennismaking.
 
-Nu gehydrateerd (indien in het CMS gevuld): `<title>`, hero-eyebrow, hero-h1, hero-lead,
-hero-body. Uit te breiden in de hydratie-stap onderaan `index.html`.
+## Dormant / niet meer in de navigatie
+
+De oude open-event-ticketverkoop (`checkout.js`, `api/checkout.js`, `api/inschrijving.js`,
+`api/annuleren.js`) en de oude AI WerkScan (`api/werkscan.js`) staan **niet** meer in de site,
+maar zijn behouden voor bestaande boekingslinks (`/inschrijving/:token` blijft werken). De oude
+CMS-hydratie (`api/content.js`) wordt niet meer aangeroepen vanaf de homepage. Oude
+persona-/eventpagina's zijn verwijderd en 302-geredirect naar `/` in `vercel.json`.
 
 ## Lokaal draaien
 
 ```bash
-# Statisch bekijken (zonder CMS-endpoint):
-open index.html
-
-# Mét het /api/content-endpoint (Vercel dev):
-npx vercel dev
+open index.html          # statisch (zonder de /api-endpoints)
+npx vercel dev           # mét de serverless endpoints
 ```
 
 ## Deploy
 
-1. Eigen Vercel-project (los van de CMS-repo).
-2. Zet — zodra er een CMS-site + token is — `CMS_URL` en `CMS_TOKEN` als Environment
-   Variables (Production + Preview). Token **nooit** in git.
-3. Testen op de Vercel-preview-URL vóór domeinkoppeling.
-4. Domein `aandeslagdag.nl` koppelen in Vercel. Pas ná akkoord live.
-
-## De centrale CMS-repo blijft ongemoeid.
+Push naar `main` (Vercel-git, auto-deploy). Prijs en propositie staan hardcoded in `index.html`;
+de blog leest live uit het CMS.
